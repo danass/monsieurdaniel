@@ -1,0 +1,154 @@
+<head>
+  <title>welcome</title>
+</head>
+
+<body>
+</body>
+
+
+<template name="home">
+
+  <div id="works">
+  {{ #each work in single "Works" }}
+  <div class="work">
+  <div class="page-full">
+
+  </div>
+    <div class="left">
+
+        <div class="sub-top">         <!-- HEADER TOP LEFT PAGE  -->        
+          <div class="title">
+          {{ work.fields.Name }}
+          </div>
+          <div>
+            {{ work.fields.[Type of work]}}
+          </div>
+          <div>
+          {{ work.fields.Year}}
+          </div>
+        </div>
+
+
+        {{#if work.fields.[In collaboration with]}}
+        <div class="sub-block">
+          <div> Collaborators:
+          {{work.fields.[In collaboration with]}}
+        </div>
+        </div>
+        {{/if}}
+
+
+        {{#if work.fields.[Special Thanks]}}
+        <div class="sub-block">
+          <div> Special Thanks:
+          {{work.fields.[Special Thanks]}}
+        </div>
+        </div>
+        {{/if}}
+
+        {{#if work.fields.[Shows]}}
+        <div class="sub-block">
+          <div> Passed Shows:
+            {{#each id_ in work.fields.[Shows] }}
+            {{#each show in id id_}}
+
+              {{show.fields.Name}}
+
+            {{/each}}
+            <br>
+            {{/each}}
+        </div>
+        </div>
+        {{/if}}
+
+        {{#if work.fields.[Venues]}}
+        <div class="sub-block">
+          <div> Venues:
+            {{#each id_ in work.fields.[Venues] }}
+            {{#each venue in id id_}}
+
+              {{venue.fields.Name}}
+
+            {{/each}}
+            <br>
+            {{/each}}
+        </div>
+        </div>
+        {{/if}}
+
+
+
+        {{#if work.fields.Status}}
+        <div class="sub-block">
+          <div> Status:
+          {{work.fields.Status}}
+        </div>
+        </div>
+        {{/if}}
+
+
+        <div id="entries">
+        {{#if work.fields.Entries}}        <!-- ENTRIES  -->        
+        <div class="sub">
+          {{#each entryid in work.fields.Entries }}
+            {{#each entry in id entryid}}
+
+            <div class="sub-block"> 
+              <div>
+                {{#if eq entry.fields.Link true }}
+                <a href="{{entry.fields.Text}}">{{entry.fields.Text}}</a>
+                {{else}}
+                {{entry.fields.Text}}
+                {{/if}}
+              </div>
+            </div>
+            {{/each}}
+          {{/each}}
+        </div>
+        {{/if}}
+      </div>  <!-- END ENTRIES  -->   
+
+      {{#if work.fields.Materials}}
+      <div class="sub-block">
+        <div class="sub-bottom"> Materials:
+          {{#each id_ in work.fields.Materials}}
+          {{#each material in id id_}}
+          {{material.fields.Name}}
+          {{/each}}
+          {{/each}}
+      </div>
+      </div>
+      {{/if}}
+
+
+    </div>              
+    
+    
+    <div class="right">
+      {{#if work.fields.Photos}}
+
+        {{#each photo in work.fields.Photos}}      
+
+            {{#if eq photo.type "video/mp4"}}
+            <video class="img-fullpage page page-{{@index}}" controls autoplay  >
+            <source  src="{{photo.url}}#t=627" type="video/mp4" />
+            </video>
+            
+            {{else}}
+            <div class="img-fullpage page page-{{@index}}" style="background-image: url('{{photo.url}}')"></div>
+
+            {{/if}}
+ 
+
+        {{/each}}
+      {{/if}}
+    </div>
+
+
+  </div>
+  {{/each}}
+</div>
+
+
+</template>
+

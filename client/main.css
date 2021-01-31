@@ -1,0 +1,143 @@
+body {
+  padding: 10px;
+  font-family: sans-serif;
+  background-color: rgba(242,242,242);
+}
+
+/* INTERACTIVE STYLING */
+
+/* next() btn, -> show 1 div at once */
+#works .work:not(:first-child) {
+  display: none; 
+}
+
+.page:not(:first-child) {
+  display: none;
+}
+
+.page, .work, .left, .right, .page-full, div, .img-fullpage {
+  transition: width 2s, height 2s, visibility 2s, click 2s, display 2s, opacity 2s;
+}
+
+.right:hover {
+  opacity: 0.8;
+  cursor: zoom-in;
+  }
+  
+  .left:hover {
+    cursor: url('https://dl.airtable.com/.attachments/af395cf60ee750a295fc7c8edefb4a93/dcdc1cce/0next.png'), pointer;
+  }
+
+  .page-full:hover {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" style="font-size: 40px; font-color:white;"><text y="40">⤸</text></svg>'), auto;
+
+  }
+
+/* GENERAL SHAPE STYLING */ 
+
+div#nav {
+  position: fixed;
+}
+
+.page-full {
+  display: none;
+  width: 75vw;
+}
+
+#works {
+  margin:1vh auto;
+  width: 75vw;
+  background-color: rgba(240,240,240);
+  padding:1%;
+  height: 90vh;
+  font-family: monospace;
+}
+
+.work {
+  width: 100%;
+  display: flex; justify-content: space-around;
+  height: 100%;
+  
+
+}
+
+.left, .right {
+  width: 100%;
+
+}
+
+.left{
+  background-color: rgb(246, 246, 246);
+  height: 100%;
+  resize: inline;
+  overflow: hidden;
+
+}
+.right {
+  resize: inline;
+  overflow: hidden;
+  background-color: rgb(248, 248, 248);
+  transition: opacity 1s;
+}
+
+.sub-top {
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 7.5%;
+  background-color: rgb(255, 255, 255);
+  padding-bottom:7.5%;
+}
+
+.sub-bottom {
+  padding-top: 10%;
+}
+
+.sub-block {
+  padding-left: 10%;
+  padding-right: 10%;
+  background-color: rgb(255, 255, 255);
+}
+.sub-block div {
+  /* background-color: rgb(244, 252, 255); */
+  text-transform: capitalize;
+  /* font-size: 0.9vmax; */
+  padding-bottom:0.5vmax;
+
+}
+.sub-block:last-child {
+  padding-bottom:10%;
+}
+
+.sub-block:first-child{
+  padding-top: 7.5%;
+}
+
+.sub div {
+  background-color:#4fa4ea00;
+}
+
+.sub-block:nth-last-child(odd) {
+  /* background-color: rgb(255 40 94); */
+}
+.sub-block:nth-last-child(even) {
+  /* background-color: rgb(59 255 212); */
+}
+
+/* PARAGRAPH AND TEXT STYLING */
+
+
+.title {
+    font-size: 2.3vmax;
+    overflow: hidden;
+    width: fit-content;
+}
+
+
+/* IMG STYLING */ 
+
+.img-fullpage {
+  width:100%;
+  height:100%;
+  background-position: center;
+  background-size: contain;
+}
