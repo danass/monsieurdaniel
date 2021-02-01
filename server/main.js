@@ -4,10 +4,11 @@ import _ from 'lodash';
 
 
 let ledger = ["Works", "Entries", "Shows", "Venues", "Materials"]
-let buffersize = 5 
+let buffersize = 10 
 let memory = []
 
-let delayms = 1000
+let delayms = 1500
+
 let localdbIds = new Set()
 
 Meteor.startup( () => {
@@ -25,9 +26,8 @@ async function airpatch(data, table) {
   }
 
 helper = {}
-console.log()
 
-async function mongotoair(data, table) { 
+async function mongotoair(data, table) {
   await axios({
     method: 'post',
     headers: { 'Authorization': "Bearer " + apikey, 
@@ -74,7 +74,7 @@ async function update(ledger) {
             // UPDATE DB ..    
 
         }).catch(e => {
-          console.log("hmm,", e.Error)
+          console.log("hmm,", e.code)
           return
         })
         // END OF FOR LOOP
@@ -97,7 +97,7 @@ async function update(ledger) {
         
         differenceIds.forEach(id =>
              {
-               console.log("removing?")
+              //  console.log("removing?")
               // console.log("hey", differenceIds.size, id.type)
               // checking consistency: if memory buffer average is consistent (average of buffer == db size) 
               if (memory.reduce((a, b) => { return (a + b)/ memory.length }) == dbIdsCopy.size) {
@@ -105,7 +105,7 @@ async function update(ledger) {
                 db.remove(id)
               }
               else {
-                console.log("no")
+                // console.log("no")
               }
               })   
     }

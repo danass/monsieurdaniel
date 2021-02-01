@@ -7,6 +7,8 @@
 
 
 <template name="home">
+  <div id="prev">prev</div>
+  <div id="next">next</div>
 
   <div id="works">
   {{ #each work in single "Works" }}
@@ -94,14 +96,16 @@
             {{#each entry in id entryid}}
 
             <div class="sub-block"> 
-              <div>
+             
                 {{#if eq entry.fields.Link true }}
                 <a href="{{entry.fields.Text}}">{{entry.fields.Text}}</a>
+                {{else if eq entry.fields.Main true }}
+                <div id="sub-main">{{entry.fields.Text}}</div>
                 {{else}}
                 {{entry.fields.Text}}
                 {{/if}}
               </div>
-            </div>
+           
             {{/each}}
           {{/each}}
         </div>
@@ -109,14 +113,13 @@
       </div>  <!-- END ENTRIES  -->   
 
       {{#if work.fields.Materials}}
-      <div class="sub-block">
+
         <div class="sub-bottom"> Materials:
           {{#each id_ in work.fields.Materials}}
           {{#each material in id id_}}
           {{material.fields.Name}}
           {{/each}}
           {{/each}}
-      </div>
       </div>
       {{/if}}
 

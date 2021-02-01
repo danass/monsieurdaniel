@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Template.registerHelper("eq", function (a, b) {
   return a == b;
 });
@@ -69,8 +68,17 @@ Template.home.events({
       img_i = 1
       //  $(".work:nth-child("+ index + ")").show()
     }
-    
+  },
+  'click' (e,i) {
 
+    //  $.fn.overflown=function(){var e=this.currentTarget[0]; return e.scrollHeight>e.clientHeight||e.scrollWidth>e.clientWidth;}
+    //  $(e.currentTarget).overflown()
+   
+    // console.log(isOverflown($(e.currentTarget)[0]))
+    let scrollh = $(e.currentTarget)[0].scrollHeight
+    let clienth = $(e.currentTarget)[0].clientHeight
+    
+     console.log(scrollh, clienth, scrollh > clienth)
   }
 });
 
@@ -96,18 +104,7 @@ function prev() {
   $(".work:nth-child("+ index + ")").css('display', 'flex')
 }
 
-=======
-Template.home.onCreated(function () {
 
-});
-
-Template.home.helpers({
-});
-
-Template.home.events({
-  'click'(event, instance) {
-    console.log(instance)
-    // instance.counter.set(instance.counter.get() + 1);
-  },
-});
->>>>>>> dbc249c... papa init
+function isOverflown(element) {
+  return element.scrollHeight > element.clientHeight || element.scrollWidth > element.clientWidth;
+}

@@ -44,6 +44,7 @@ div#nav {
   width: 75vw;
 }
 
+
 #works {
   margin:1vh auto;
   width: 75vw;
@@ -63,6 +64,7 @@ div#nav {
 
 .left, .right {
   width: 100%;
+  position: relative;
 
 }
 
@@ -89,13 +91,25 @@ div#nav {
 }
 
 .sub-bottom {
-  padding-top: 10%;
+  padding:5% 10% 5% 10%;
+  position:absolute;                  
+  bottom:0;                          
+  width:100%;
+  background-color: rgb(255, 255, 255);
 }
 
 .sub-block {
   padding-left: 10%;
   padding-right: 10%;
   background-color: rgb(255, 255, 255);
+}
+#sub-main {
+  overflow: hidden;
+  height: 50vh;
+  position: relative;
+  text-transform: capitalize;
+  text-align-last: end;
+  -webkit-text-emphasis-style: open;
 }
 .sub-block div {
   /* background-color: rgb(244, 252, 255); */
