@@ -6,8 +6,7 @@ Template.registerHelper("log", function (o) {
   console.log(o)
 });
 
-Template.home.onCreated(function () {
-
+Template.home.onCreated(function () { 
   if(navigator.userAgent.match(/Android|webOS|iPhone|iPod|Blackberry/i) ){
     console.log(navigator.userAgent)
     $('body ').html('This website cannot be viewed on a cellphone. <br>Yeah, my art is not supposed to be viewed on a 7cm screen. <br>Increase your INCHES sister.')
@@ -41,7 +40,13 @@ let img_i = 1;
 
 Template.home.events({
   'click #next, click .left' (event, instance) {
-    next()
+    
+     maindiv = $('#sub-main')
+    let scrollh = $(maindiv)[0].scrollHeight
+    let clienth = $(maindiv)[0].clientHeight
+    console.log(maindiv[0].innerHTML)
+     console.log(scrollh, clienth, scrollh > clienth)
+     next()
   },
   'click #prev' () {
     prev()
@@ -71,13 +76,10 @@ Template.home.events({
   },
   'click' (e,i) {
 
-    //  $.fn.overflown=function(){var e=this.currentTarget[0]; return e.scrollHeight>e.clientHeight||e.scrollWidth>e.clientWidth;}
-    //  $(e.currentTarget).overflown()
-   
-    // console.log(isOverflown($(e.currentTarget)[0]))
-    let scrollh = $(e.currentTarget)[0].scrollHeight
-    let clienth = $(e.currentTarget)[0].clientHeight
-    
+    let maindiv = $('#sub-main')
+    let scrollh = $(maindiv)[0].scrollHeight
+    let clienth = $(maindiv)[0].clientHeight
+    console.log(maindiv)
      console.log(scrollh, clienth, scrollh > clienth)
   }
 });

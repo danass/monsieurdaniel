@@ -5,7 +5,7 @@ import _ from 'lodash';
 
 let ledger = ["Works", "Entries", "Shows", "Venues", "Materials"]
 let buffersize = 10 
-let memory = []
+let memory = [] 
 
 let delayms = 1500
 
