@@ -36,7 +36,16 @@ body {
 /* GENERAL SHAPE STYLING */ 
 
 div#nav {
-  position: fixed;
+  display: flex;
+  flex-direction: unset;
+  place-content: center;
+  border-bottom-style: groove;
+}
+
+#prev:hover, #next:hover {
+  font-weight: bold;
+  cursor: grabbing;
+
 }
 
 .page-full {
