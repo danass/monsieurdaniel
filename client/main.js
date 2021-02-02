@@ -5,7 +5,7 @@ Template.registerHelper("eq", function (a, b) {
 Template.registerHelper("log", function (o) {
   console.log(o)
 });
-
+ 
 Template.home.onCreated(function () { 
   if(navigator.userAgent.match(/Android|webOS|iPhone|iPod|Blackberry/i) ){
     console.log(navigator.userAgent)
