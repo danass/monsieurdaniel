@@ -1,0 +1,28 @@
+<template name="alive">
+
+{{#each work in id "rect3VJxLLjzImB3w"}}
+{{#each entrycur in (arrid work.fields.Entries)}}
+
+{{#each entry in entrycur}}
+<div class="entry {{strarr entry.fields.Scheme true}}">
+
+  <div  class="entry-text">
+    {{br entry.fields.Text}}
+  </div>
+
+  <div class={{strarr entry.fields.Scheme}}>
+    <div class="photos">
+  {{#each photo in entry.fields.Photos}}
+    <div class="photo">
+    <img src={{photo.url}}><div class="caption">{{photo.filename}}</div>
+    </div>
+  {{/each}}
+  </div>
+</div>
+</div>
+{{/each}}
+
+{{/each}}
+{{/each}}
+
+</template>

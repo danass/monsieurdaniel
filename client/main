@@ -1,8 +1,12 @@
 body {
-  padding: 10px;
+  padding: 0.4vw;
   font-family: sans-serif;
   background-color: rgba(242,242,242);
+  transition: background-color 1s linear;
+  -webkit-transition: background-color 1s linear;
+  -moz-transition: background-color 1s linear;
 }
+
 
 /* INTERACTIVE STYLING */
 
@@ -16,7 +20,7 @@ body {
 }
 
 .page, .work, .left, .right, .page-full, div, .img-fullpage {
-  transition: width 2s, height 2s, visibility 2s, click 2s, display 2s, opacity 2s;
+  transition: width 2s, height 2s, visibility 2s, click 2s, display 2s, opacity 2s, background-color 1s;
 }
 
 .right:hover {
@@ -33,13 +37,42 @@ body {
 
   }
 
+.darkmode {
+  background-color: black;
+  transition: background-color 1s linear;
+  -webkit-transition: background-color 1s linear;
+  -moz-transition: background-color 1s linear;
+}
+
 /* GENERAL SHAPE STYLING */ 
+#uncensored {
+  color: white;
+  font-size: small;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(224 224 224);
+  padding: 0.71vw;
+}
+
+#menu-left {
+  position: relative;
+  height: 90vh;
+  overflow: hidden;
+
+  float: left;
+  font-family: monospace;
+  /* background: aquamarine; */
+  width: 9.3vw;
+  bottom: 0px;
+  left: 1vh;
+  top: 3vh;
+}
 
 div#nav {
   display: flex;
   flex-direction: unset;
   place-content: center;
-  border-bottom-style: groove;
 }
 
 #prev:hover, #next:hover {
@@ -55,10 +88,10 @@ div#nav {
 
 
 #works {
-  margin:1vh auto;
+  margin:1vw auto;
   width: 75vw;
   background-color: rgba(240,240,240);
-  padding:1%;
+  padding:1vw;
   height: 90vh;
   font-family: monospace;
 }
@@ -125,6 +158,7 @@ div#nav {
   text-transform: capitalize;
   /* font-size: 0.9vmax; */
   padding-bottom:0.5vmax;
+  padding-top: 1%;
 
 }
 .sub-block:last-child {

@@ -1,0 +1,320 @@
+body {
+  font-family: imperial;
+  background-color: rgba(242,242,242);
+  transition: background-color 1s linear;
+  -webkit-transition: background-color 1s linear;
+  -moz-transition: background-color 1s linear;
+  margin:0vw auto;
+}
+
+/*ANIMATED STYLE*/
+
+
+.grad {
+  background: linear-gradient(19deg, #a2a2a2, #203a46, #2f2420, #d5d5d5, #e4e4e4, #000000, #c6c6c6, #c6c6c6, #c6c6c6, #555555, #959595, #d1d1d1, #d1d1d1, #292929, #2a3071, #252527);
+  background-size: 3200% 3200%;
+
+  -webkit-animation: AnimationName 59s ease infinite;
+  -moz-animation: AnimationName 59s ease infinite;
+  animation: AnimationName 59s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+  0%{background-position:36% 0%}
+  50%{background-position:65% 100%}
+  100%{background-position:36% 0%}
+}
+@-moz-keyframes AnimationName {
+  0%{background-position:36% 0%}
+  50%{background-position:65% 100%}
+  100%{background-position:36% 0%}
+}
+@keyframes AnimationName {
+  0%{background-position:36% 0%}
+  50%{background-position:65% 100%}
+  100%{background-position:36% 0%}
+}
+
+.page, .work, .leftt, .right, .page-full, div, .img-fullpage {
+  transition: width 2s, height 2s, visibility 2s, click 2s, display 2s, opacity 2s, background-color 1s;
+}
+
+/* INTERACTIVE STYLING */
+
+/* next() btn, -> show 1 div at once */
+#works .work:not(:first-child) {
+  display: none; 
+}
+
+
+.right .page:hover {
+  opacity: 1;
+  font-size: 2vh;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" style="font-size: 40px; font-color:white;"><text y="40">🔫</text></svg>'), auto;
+
+}
+.right:hover:.page:hover {
+  padding:0vw;
+}
+
+.right:hover, #works {
+  transition: padding 0.5s, width 0.5s, height 0.5s, visibility 0.5s, click 0.5s, display 0.52s, opacity 0.5s, background-color 0.5s;
+}
+
+.page {
+  height:fit-content;
+}
+
+.right .page:not(:first-child) {
+  margin-top: 9vh;
+
+}
+
+.blogcentered {
+  background: bisque;
+  margin: 0 auto;
+  /* overflow: auto; */
+  padding:100px;
+  /* height: 77%!important; */
+  font-size:3vh!important;
+  height: fit-content!important;
+  margin-bottom: 5vw!important;
+}
+.goleft:hover {
+  /* background-image: linear-gradient( 
+    14deg
+    , #69575c26, #caa8b300 10% );
+        transition: 0.1s;
+        filter: blur(41px) contrast(2.5) brightness(8.8) hue-rotate(
+    35deg
+    ); */
+}
+
+.flightleft {
+  background-image: linear-gradient( 
+    14deg
+    , #69575c26, #caa8b300 10% );
+        transition: 0.1s;
+        filter: blur(41px) contrast(2.5) brightness(8.8) hue-rotate(
+    35deg
+    );
+}
+
+
+  .goleft, .goright {
+    position: absolute;
+    overflow: overlay;
+    width:50%;
+    height:100%;
+    z-index:1;
+    transition: 1s;
+  }
+  .goleft{
+    left:0;
+  }
+  .goright {
+    right:0;
+  }
+
+  .goleft:hover {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" style="font-size: 40px; font-color:white;"><text y="40">🍔</text></svg>'), auto;
+  }
+
+  .goright:hover{
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" style="font-size: 40px; font-color:white;"><text y="40">🦄</text></svg>'), auto;
+  
+}
+  .page-full:hover {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" style="font-size: 40px; font-color:white;"><text y="40">🦄</text></svg>'), auto;
+
+  }
+
+.darkmode {
+  background-color: black;
+  transition: background-color 1s linear;
+  -webkit-transition: background-color 1s linear;
+  -moz-transition: background-color 1s linear;
+}
+
+/* GENERAL SHAPE STYLING */ 
+#uncensored {
+  color: white;
+  
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(224 224 224);
+  /* padding: 0.71vw; */
+}
+
+#menu-left {
+  position: relative;
+  height: 90vh;
+  overflow: hidden;
+  float: left;
+  font-family: imperial;
+  /* background: aquamarine; */
+  width: 9.3vw;
+  bottom: 0px;
+  left: 1vh;
+  top: 3vh;
+  display: none;
+}
+
+div#nav {
+  display: flex;
+  flex-direction: unset;
+  place-content: center;
+  display: none;
+}
+
+#prev:hover, #next:hover {
+  font-weight: bold;
+  cursor: grabbing;
+
+}
+
+.page-full {
+  display: none;
+  width: 75vw;
+}
+
+canvas#flipbar {
+  width: 100%;
+  height: 4vh;
+}
+
+#works {
+  margin:0vw auto;
+  /* width: 100%-4vw; */
+  background-color: rgb(203 203 203);
+  padding: 5vh 5vw 5vh 5vw;
+  height: 90vh;
+  font-family: imperial;
+}
+
+.work {
+  width: 100%;
+  display: flex; justify-content: space-around;
+  height: 100%;
+  
+
+}
+
+.left, .right {
+  width: 100%;
+  position: relative;
+
+}
+
+.left { 
+  background-color: rgb(246, 246, 246);
+  height: 100%;
+  resize: inline;
+  overflow: hidden;
+  width: 27%;
+}
+
+.right {
+  resize: inline;
+  overflow: auto;
+  background-color: rgb(248, 248, 248);
+  transition: opacity 1s;
+  width:100%;
+  padding:5vw;
+}
+
+body {
+  scrollbar-color:#e2e2e2;
+  scrollbar-width: thin;          /* "auto" or "thin" */
+}
+.right::-webkit-scrollbar-track {
+  background-color: #3f3f3f38;
+  border-radius: 40px 40px 0px 0px;
+}
+.right::-webkit-scrollbar-thumb {
+  background-color: #e2e2e2;
+  border-radius: 40px;
+  border: 2px solid #00000008;
+
+}
+.right::-webkit-scrollbar {
+  width: 15px;
+
+}
+
+.sub-top {
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 7.5%;
+  background-color: rgb(255, 255, 255);
+  padding-bottom:7.5%;
+}
+
+.sub-bottom {
+  padding:5% 10% 5% 10%;
+  position:absolute;                  
+  bottom:0;                          
+  width: -webkit-fill-available;
+  background-color: rgb(255, 255, 255);
+}
+
+.sub-block {
+  padding-left: 10%;
+  padding-right: 10%;
+  background-color: rgb(255, 255, 255);
+}
+#sub-main {
+  overflow: hidden;
+  height: 50vh;
+  position: relative;
+  text-transform: capitalize;
+  text-align-last: en;
+  -webkit-text-emphasis-style: open;
+}
+.sub-block div {
+  /* background-color: rgb(244, 252, 255); */
+  text-transform: capitalize;
+  /* font-size: 0.9vmax; */
+  padding-bottom:0.5vmax;
+  padding-top: 1%;
+
+}
+.sub-block:last-child {
+  padding-bottom:10%;
+}
+
+.sub-block:first-child{
+  padding-top: 7.5%;
+}
+
+.sub div {
+  background-color:#4fa4ea00;
+}
+
+.sub-block:nth-last-child(odd) {
+  /* background-color: rgb(255 40 94); */
+}
+.sub-block:nth-last-child(even) {
+  /* background-color: rgb(59 255 212); */
+}
+
+/* PARAGRAPH AND TEXT STYLING */
+
+
+.title {
+    font-size: 2.3vmax;
+    overflow: hidden;
+    width: fit-content;
+}
+
+
+/* IMG STYLING */ 
+
+.img-fullpage {
+  width:100%;
+  height:100%;
+  background-position: center;
+  background-size: contain;
+}
+

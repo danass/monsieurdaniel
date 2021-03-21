@@ -97,7 +97,7 @@ async function update(ledger) {
         
         differenceIds.forEach(id =>
              {
-              //  console.log("removing?")
+               console.log("removing?")
               // console.log("hey", differenceIds.size, id.type)
               // checking consistency: if memory buffer average is consistent (average of buffer == db size) 
               if (memory.reduce((a, b) => { return (a + b)/ memory.length }) == dbIdsCopy.size) {

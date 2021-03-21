@@ -11,3 +11,10 @@
       BlazeLayout.render('test', {params: params})
     }
   })
+
+  FlowRouter.route('/alive', {
+    name: 'alive',
+    action(params) {
+      BlazeLayout.render('alive', {params: params})
+    }
+  })

@@ -11,15 +11,28 @@
   <div id="prev">prev</div> 
   <div id="next">next</div>
 </div>
+<div id="menu-left">
+  <div id="uncensored">
+    
+    <input type="checkbox" id="uncensoredbox" name="uncensoredbox">
+    <label for="uncensoredbox">
+    activate
+    uncensored mode</label> 
+    </div>
+</div>
 
-  <div id="works">
+
+
+  <div id="works" class="grad">
   {{ #each work in single "Works" }}
-  <div class="work">
+  <div class="work work-{{@index}}">
   <div class="page-full">
 
   </div>
     <div class="left">
-
+      <div class="goleft"></div>
+      <div class="goright"></div>
+      
         <div class="sub-top">         <!-- HEADER TOP LEFT PAGE  -->        
           <div class="title">
           {{ work.fields.Name }}
@@ -92,23 +105,36 @@
 
 
         <div id="entries">
-        {{#if work.fields.Entries}}        <!-- ENTRIES  -->        
+        {{#if work.fields.Entries}}        <!-- ENTRIES  -->       
+
         <div class="sub">
           {{#each entryid in work.fields.Entries }}
+          {{#let pcount=@index}}          
             {{#each entry in id entryid}}
 
             <div class="sub-block"> 
              
                 {{#if eq entry.fields.Link true }}
                 <a href="{{entry.fields.Text}}">{{entry.fields.Text}}</a>
+
                 {{else if eq entry.fields.Main true }}
-                <div id="sub-main">{{entry.fields.Text}}</div>
+                <div id="sub">{{entry.fields.Text}}</div>
+
+                {{else if eq entry.fields.Type "Blog" }}
+                
+                  {{#if eq pcount 0}}
+                  {{entry.fields.Text}}
+                  {{/if}}
+
+
                 {{else}}
-                {{entry.fields.Text}}
+                
+                
                 {{/if}}
               </div>
            
             {{/each}}
+            {{/let}}
           {{/each}}
         </div>
         {{/if}}
@@ -135,8 +161,8 @@
         {{#each photo in work.fields.Photos}}      
 
             {{#if eq photo.type "video/mp4"}}
-            <video class="img-fullpage page page-{{@index}}" controls autoplay  >
-            <source  src="{{photo.url}}#t=627" type="video/mp4" />
+            <video class="img-fullpage page page-{{@index}}" controls  >
+            <source  src="{{photo.url}}" type="video/mp4" />
             </video>
             
             {{else}}
@@ -146,6 +172,23 @@
  
 
         {{/each}}
+
+      {{else}}
+      {{#if eq work.fields.Status "Blog" }}
+      {{#each id_ in work.fields.Entries}}
+      {{#let pcount=@index}}     
+      {{#each blog in id id_}}
+      <div class="img-fullpage page page-{{pcount}} blogcentered">
+          {{date blog.createdTime}}
+          {{blog.fields.Text}}
+      </div>
+      {{/each}}
+      {{/let}}
+      {{/each}}
+      {{else}}
+      Bee
+      {{/if}}
+
       {{/if}}
     </div>
 
