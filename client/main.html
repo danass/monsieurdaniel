@@ -32,79 +32,87 @@
     <div class="left">
       <div class="goleft"></div>
       <div class="goright"></div>
-      
+
+      <div class="goflight"></div>
         <div class="sub-top">         <!-- HEADER TOP LEFT PAGE  -->        
           <div class="title">
           {{ work.fields.Name }}
           </div>
-          <div>
+          <div class="s-yea">
+            {{ work.fields.Year}}
+          </div>
+          <div class="s-typ">
             {{ work.fields.[Type of work]}}
           </div>
-          <div>
-          {{ work.fields.Year}}
-          </div>
         </div>
 
-
+      <div class="subs-left">
         {{#if work.fields.[In collaboration with]}}
-        <div class="sub-block">
-          <div> Collaborators:
+        <div class="sub-block s-inc">
+        <div>Collaborators:</div>
+          <p>
           {{work.fields.[In collaboration with]}}
-        </div>
+        </p>
         </div>
         {{/if}}
 
 
         {{#if work.fields.[Special Thanks]}}
-        <div class="sub-block">
-          <div> Special Thanks:
+        <div class="sub-block s-spe">
+          <div>Special Thanks:</div>
+          <p>
           {{work.fields.[Special Thanks]}}
-        </div>
+        </p>
         </div>
         {{/if}}
 
         {{#if work.fields.[Shows]}}
-        <div class="sub-block">
-          <div> Passed Shows:
+        <div class="sub-block s-sho">
+          <div>Passed Shows:</div>
             {{#each id_ in work.fields.[Shows] }}
             {{#each show in id id_}}
-
+            <p>
               {{show.fields.Name}}
-
+            </p>
             {{/each}}
-            <br>
             {{/each}}
-        </div>
+        
         </div>
         {{/if}}
 
         {{#if work.fields.[Venues]}}
-        <div class="sub-block">
-          <div> Venues:
+        <div class="sub-block s-ven">
+        <div>Venues:</div>
             {{#each id_ in work.fields.[Venues] }}
             {{#each venue in id id_}}
-
-              {{venue.fields.Name}}
+              
+              <p>{{venue.fields.Name}}</p>
 
             {{/each}}
-            <br>
             {{/each}}
-        </div>
+        
         </div>
         {{/if}}
 
 
 
-        {{#if work.fields.Status}}
-        <div class="sub-block">
-          <div> Status:
-          {{work.fields.Status}}
-        </div>
-        </div>
-        {{/if}}
+        {{#if work.fields.Materials}}
 
+        <div class="sub-block s-mat"> 
+        <div>Materials:</div>
+          {{#each id_ in work.fields.Materials}}
+          {{#each material in id id_}}
+          <p>
+          {{material.fields.Name}}
+          </p>
+          {{/each}}
+          {{/each}}
+      </div>
+      {{/if}}
+        
+      </div>
 
-        <div id="entries">
+        <div class="entries">
         {{#if work.fields.Entries}}        <!-- ENTRIES  -->       
 
         <div class="sub">
@@ -140,16 +148,14 @@
         {{/if}}
       </div>  <!-- END ENTRIES  -->   
 
-      {{#if work.fields.Materials}}
 
-        <div class="sub-bottom"> Materials:
-          {{#each id_ in work.fields.Materials}}
-          {{#each material in id id_}}
-          {{material.fields.Name}}
-          {{/each}}
-          {{/each}}
+      {{#if work.fields.Status}}
+      <div class="sub-bottom">
+        Status:
+        {{work.fields.Status}}
       </div>
       {{/if}}
+
 
 
     </div>              

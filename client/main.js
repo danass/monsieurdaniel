@@ -14,20 +14,12 @@ Template.registerHelper("date", function (o) {
 });
 
 
-
-
-
-
-function flipbar() {
-  ctx.fillStyle = 'rgb(' + Math.floor(255-20.5*i)+ ','+ Math.floor(255 - 42.5*j) + ',255)';
-  ctx.fillRect( j*zoom, i* zoom, spacing, spacing );
-}
-
 Template.home.onCreated(function () { 
   
   if(navigator.userAgent.match(/Android|webOS|iPhone|iPod|Blackberry/i) ){
     console.log(navigator.userAgent)
     $('body ').html('This website cannot be viewed on a cellphone. <br>Do you really think that art is supposed to be viewed on a 7cm screen?')
+    $('.blogcentered').parent().css('background-color', '#aeaeae!important')
   }
 
 
@@ -84,12 +76,7 @@ let activeclass = 0
 let incrY = 0
 
 Template.home.events({
-  'mouseenter  .goright' () {
-    $('.left').addClass('flightleft')
-  },
-  'mouseleave .goright' () {
-    $('.left').removeClass('flightleft')
-  },
+
   'wheel' (e, i) {
     // incrY+=e.originalEvent.wheelDelta ?? -e.originalEvent.deltaY 
     // if (incrY <= 0) {
@@ -103,12 +90,12 @@ Template.home.events({
     // }
     // console.log(incrY, $('.work-' + activeclass + ' .right .page:last' )[0].clientHeight)  
   },
-  'click #next, click .goleft' (event, instance) {
+  'click #next' (event, instance) {
     incrY = 0
      prev()
      
   },
-  'click #prev, click .goright' () {
+  'click #prev' () {
     incrY = 0
     next()
     
@@ -127,7 +114,7 @@ Template.home.events({
     img_i += 1;
     $('.page:nth-child('+ img_i +')').css('display', 'flex')
     if ( img_i > count ) {
-      console.log(img_i )
+      // console.log(img_i )
      exitfullpage()
 
     }
@@ -144,6 +131,7 @@ Template.home.events({
 
 
 function next() {
+  $('.blogcentered').parent().css('background-color', '#aeaeae!important')
   // lastdivh = $('.work-' + activeclass + ' .right .page:last' )[0].clientHeight
   incrY = 0
   if(activeclass == $('.right').length -1) {
@@ -165,8 +153,9 @@ function next() {
 
 
 function prev() {
+  $('.blogcentered').parent().addClass('greybc')
   lastdivh = $('.work-' + activeclass + ' .right .page:last' )[0].clientHeight
-    console.log(lastdivh)
+    // console.log(lastdivh)
   incrY = 0
   if(activeclass == 0) {
     activeclass = $('.right').length -1

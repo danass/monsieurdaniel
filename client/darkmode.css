@@ -69,28 +69,24 @@ body {
   margin-top: 9vh;
 
 }
-
+.greybc {
+  background: #aeaeae!important;
+}
 .blogcentered {
-  background: bisque;
-  margin: 0 auto;
-  /* overflow: auto; */
-  padding:100px;
-  /* height: 77%!important; */
-  font-size:3vh!important;
+  background: #aeaeae;
+  font-size: 2vh!important;
   height: fit-content!important;
-  margin-bottom: 5vw!important;
+  color: #ffffff;
+  font-family: sans-serif;
+  line-height: 2.1vw;
+  padding: 5vw;
+  white-space: pre-wrap;
+  margin: -5vw;
+  top: 240px!important;
+  position: inherit;
+  margin-bottom: 5vw;
 }
-.goleft:hover {
-  /* background-image: linear-gradient( 
-    14deg
-    , #69575c26, #caa8b300 10% );
-        transition: 0.1s;
-        filter: blur(41px) contrast(2.5) brightness(8.8) hue-rotate(
-    35deg
-    ); */
-}
-
-.flightleft {
+/* .goleft:hover {
   background-image: linear-gradient( 
     14deg
     , #69575c26, #caa8b300 10% );
@@ -98,8 +94,35 @@ body {
         filter: blur(41px) contrast(2.5) brightness(8.8) hue-rotate(
     35deg
     );
+} */
+/* 
+.goleft:hover ~ .goflight {
+  background-image: linear-gradient( 88deg ,#6c4c552b -70%, #405d5078 10%, #5b2a2ab3 140%, #b5e1b5 1000%);
+  transition: 0.1s;
+  filter: blur(100px) contrast(130%) brightness(531%) hue-rotate(188deg) saturate(450%);
+  transition: 1s;
 }
 
+.goright:hover ~ .goflight {
+  background-image: linear-gradient(
+268deg
+, #4e526338, #f7f7f70f, #cfa8f301 140%);
+  transition: 0.1s;
+  filter: blur(10px) contrast(250%) brightness(541%) hue-rotate(
+20deg
+);
+transition: 1s;
+
+} */
+
+
+/* .goflight {
+  width: 100%;
+  height: 34%;
+  position: absolute;
+  top: 0;
+  left: 0;
+} */
 
   .goleft, .goright {
     position: absolute;
@@ -116,11 +139,11 @@ body {
     right:0;
   }
 
-  .goleft:hover {
+  #prev:hover {
     cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" style="font-size: 40px; font-color:white;"><text y="40">🍔</text></svg>'), auto;
   }
 
-  .goright:hover{
+  #next:hover{
   cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" style="font-size: 40px; font-color:white;"><text y="40">🦄</text></svg>'), auto;
   
 }
@@ -161,17 +184,38 @@ body {
   display: none;
 }
 
+div#nav div {
+  text-align: center;
+  align-self: center;
+  padding: 5px;
+}
+
+#nav #next {
+  background-color: #fff7f7;
+  width: 50%;
+  
+}
+
+#nav #prev {
+  background-color: #e7e7e7;
+  width: 50%;
+  
+}
+
 div#nav {
-  display: flex;
-  flex-direction: unset;
-  place-content: center;
-  display: none;
+  display:  inline-flex;
+  /* place-content: center; */
+  position: absolute;
+  width: 3.5vw;
+  height: 2.5vh;
+  background-color: cornflowerblue;
+  left: 0.8vw;
+  top: 8vh;
+  font-size: x-small;
 }
 
 #prev:hover, #next:hover {
   font-weight: bold;
-  cursor: grabbing;
-
 }
 
 .page-full {
@@ -212,7 +256,7 @@ canvas#flipbar {
   height: 100%;
   resize: inline;
   overflow: hidden;
-  width: 27%;
+  width: inherit;
 }
 
 .right {
@@ -220,7 +264,7 @@ canvas#flipbar {
   overflow: auto;
   background-color: rgb(248, 248, 248);
   transition: opacity 1s;
-  width:100%;
+  width:270vw;
   padding:5vw;
 }
 
@@ -260,10 +304,24 @@ body {
 }
 
 .sub-block {
-  padding-left: 10%;
-  padding-right: 10%;
   background-color: rgb(255, 255, 255);
+  text-transform: capitalize;
+  padding: 1% 10%;
 }
+
+.sub-block div {
+  font-style: italic;
+}
+.sub-block p {
+  margin: 5px;
+  display: list-item;
+  list-style: square;
+}
+
+.sub-block:last-child {
+  padding-bottom: 1.3vh;
+}
+
 #sub-main {
   overflow: hidden;
   height: 50vh;
@@ -272,41 +330,26 @@ body {
   text-align-last: en;
   -webkit-text-emphasis-style: open;
 }
-.sub-block div {
-  /* background-color: rgb(244, 252, 255); */
-  text-transform: capitalize;
-  /* font-size: 0.9vmax; */
-  padding-bottom:0.5vmax;
-  padding-top: 1%;
 
-}
-.sub-block:last-child {
-  padding-bottom:10%;
-}
-
-.sub-block:first-child{
-  padding-top: 7.5%;
-}
 
 .sub div {
   background-color:#4fa4ea00;
-}
-
-.sub-block:nth-last-child(odd) {
-  /* background-color: rgb(255 40 94); */
-}
-.sub-block:nth-last-child(even) {
-  /* background-color: rgb(59 255 212); */
 }
 
 /* PARAGRAPH AND TEXT STYLING */
 
 
 .title {
-    font-size: 2.3vmax;
+    font-size: 1.3vmax;
     overflow: hidden;
     width: fit-content;
+    font-weight:700;
 }
+
+.s-yea {
+  float:right;
+}
+
 
 
 /* IMG STYLING */ 
