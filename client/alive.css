@@ -12,6 +12,8 @@
 .caption {
   text-align-last: left;
   font-family: imperial;
+  font-size: x-small;
+  padding: 3px;
 }
 .single.small .caption {
   padding-bottom: 4vh;

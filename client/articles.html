@@ -1,38 +1,18 @@
-<head>
-  <title>welcome</title>
-</head>
 
-<body>
-</body>
-
-<template name="home">
-  <div id="nav">
-  <div id="prev">prev</div> 
-  <div id="next">next</div>
-</div>
-<div id="menu-left">
-  <div id="uncensored">
-    
-    <input type="checkbox" id="uncensoredbox" name="uncensoredbox">
-    <label for="uncensoredbox">
-    activate
-    uncensored mode</label> 
+<template name="articles">
+  <div id="menu">
+    <div id="nav">
+      <div id="prev">&#8672;</div> 
+      <div id="next">&#8674;</div>
     </div>
-</div>
-
-
+  </div>
 
   <div id="works" class="grad">
   {{ #each work in single "Works" }}
   <div class="work work-{{@index}}">
   <div class="page-full">
-
   </div>
     <div class="left">
-      <div class="goleft"></div>
-      <div class="goright"></div>
-
-      <div class="goflight"></div>
         <div class="sub-top">         <!-- HEADER TOP LEFT PAGE  -->        
           <div class="title">
           {{ work.fields.Name }}
@@ -120,23 +100,11 @@
             {{#each entry in id entryid}}
 
             <div class="sub-block"> 
-             
-                {{#if eq entry.fields.Link true }}
-                <a href="{{entry.fields.Text}}">{{entry.fields.Text}}</a>
+                  {{#if eq pcount (lenindex work.fields.Entries)}}
 
-                {{else if eq entry.fields.Main true }}
-                <div id="sub">{{entry.fields.Text}}</div>
+                  {{strmaxwords entry.fields.Text 10}}... <a href="#" class="alt">Read more </a>
+                  <div class="althidden">Scroll right side to continue reading</div>
 
-                {{else if eq entry.fields.Type "Blog" }}
-                  
-                  {{#if eq pcount 0}}
-                  {{log len work.fields.Entries}}
-                  {{entry.fields.Text}}
-                  {{/if}}
-
-
-                {{else}}
-                
                 
                 {{/if}}
               </div>
@@ -155,47 +123,48 @@
         {{work.fields.Status}}
       </div>
       {{/if}}
-
-
-
     </div>              
     
     
     <div class="right">
-      {{#if work.fields.Photos}}
-
-        {{#each photo in work.fields.Photos}}      
-
-            {{#if eq photo.type "video/mp4"}}
-            <video class="img-fullpage page page-{{@index}}" controls  >
-            <source  src="{{photo.url}}" type="video/mp4" />
-            </video>
-            
-            {{else}}
-            <div class="img-fullpage page page-{{@index}}" style="background-image: url('{{photo.url}}')"></div>
-
-            {{/if}}
- 
-
-        {{/each}}
-
+      {{#each entrycur in (arrid work.fields.Entries)}}
+      {{#each entry in entrycur}}
+      
+      {{#if entry.fields.Photos}}
+      {{#each photo in entry.fields.Photos}} 
+      <div class="img-fullpage page page-{{@index}}" style="background-image: url('{{photo.url}}')"></div>
+      {{#if has entry.fields.Meta 'No-caption'}}
       {{else}}
-      {{#if eq work.fields.Status "Blog" }}
-      {{#each id_ in work.fields.Entries}}
-      {{#let pcount=@index}}     
-      {{#each blog in id id_}}
-      <div class="img-fullpage page page-{{pcount}} blogcentered">
-          {{date blog.createdTime}}
-          {{blog.fields.Text}}
+      <div class="caption">{{photo.filename}}</div>
+      {{/if}}
+      {{/each}}
+      {{/if}}
+
+      {{#if has entry.fields.Meta 'Date'}}
+      <div class="entry-date">
+        {{date entry.fields.date_created}}
       </div>
-      {{/each}}
-      {{/let}}
-      {{/each}}
-      {{else}}
-      Bee
       {{/if}}
+      
+      <div class="entry {{strarr entry.fields.Scheme true}}">
+        {{#if eq (br entry.fields.Text) '<br>'}}
+        {{else}}
+        <div  class="entry-text">
+          {{br entry.fields.Text}}
+        </div>
+        {{/if}}
 
-      {{/if}}
+        {{#if has entry.fields.Meta 'Unique'}}
+        <div class="unique">
+          <a href="/entry/{{entry.id}}">open</a>
+        </div>
+        {{else}}
+        {{/if}}
+      </div>
+
+      {{/each}}
+      
+      {{/each}}
     </div>
 
 

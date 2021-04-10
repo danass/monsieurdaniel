@@ -1,0 +1,59 @@
+<!-- 
+<template name="article">
+  {{ #let work=fetch}}
+  <div id="works" class="grad">
+
+    <div class="work">
+      <div class="right "> 
+        <div class="entry-text-single">
+      {{log work}}
+      {{work.fields.Text}}
+    </div>
+    </div>
+  </div>
+  </div>
+
+  {{/let}}
+
+<div id="menu">
+  <div id="nav">
+  <div id="prev">&#8672;</div> 
+  <div id="next">&#8674;</div>
+</div>
+</div>
+
+
+</template>
+ -->
+
+
+ <template name="article">
+
+  <div id="menu">
+    <div id="nav">
+    <div id="prev">&#8672;</div> 
+    <div id="next">&#8674;</div>
+  </div>
+  </div>
+  
+
+  {{#let entry=fetch}}
+
+  <div class="entry {{strarr entry.fields.Scheme true}}">
+  
+    <div  class="entry-text">
+      {{br entry.fields.Text}}
+    </div>
+  
+    <div class={{strarr entry.fields.Scheme}}>
+      <div class="photos">
+    {{#each photo in entry.fields.Photos}}
+      <div class="photo">
+      <img src={{photo.url}}><div class="caption">{{photo.filename}}</div>
+      </div>
+    {{/each}}
+    </div>
+  </div>
+  </div>
+{{/let}}
+  </template>

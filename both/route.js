@@ -18,3 +18,17 @@
       BlazeLayout.render('alive', {params: params})
     }
   })
+
+  FlowRouter.route('/articles', {
+    name: 'articles',
+    action(params) {
+      BlazeLayout.render('articles', {params: params})
+    }
+  })
+
+  FlowRouter.route('/entry/:id', {
+    name: 'article',
+    action(params) {
+      BlazeLayout.render('article', {params: params})
+    }
+  })
