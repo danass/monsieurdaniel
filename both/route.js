@@ -1,34 +1,30 @@
   FlowRouter.route('/', {
-    name: 'home',
+    name: 'works',
     action(params) {
-      BlazeLayout.render('home', {params: params})
+      BlazeLayout.render('works', {params: params})
     }
   })
 
-  FlowRouter.route('/test', {
-    name: 'test',
-    action(params) {
-      BlazeLayout.render('test', {params: params})
-    }
-  })
-
-  FlowRouter.route('/alive', {
-    name: 'alive',
-    action(params) {
-      BlazeLayout.render('alive', {params: params})
-    }
-  })
-
-  FlowRouter.route('/articles', {
-    name: 'articles',
-    action(params) {
-      BlazeLayout.render('articles', {params: params})
-    }
-  })
-
-  FlowRouter.route('/entry/:id', {
+  FlowRouter.route('/article/:id', {
     name: 'article',
     action(params) {
       BlazeLayout.render('article', {params: params})
+    }
+  })
+
+
+  FlowRouter.route('/entry/:id', {
+    name: 'entry',
+    action(params) {
+      BlazeLayout.render('entry', {params: params})
+    }
+  })
+
+
+
+  FlowRouter.route('/temp', {
+    name: 'temp',
+    action(params) {
+      BlazeLayout.render('temp', {params: params})
     }
   })

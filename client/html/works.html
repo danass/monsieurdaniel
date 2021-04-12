@@ -1,15 +1,9 @@
-
-<template name="articles">
-  <div id="menu">
-    <div id="nav">
-      <div id="prev">&#8672;</div> 
-      <div id="next">&#8674;</div>
-    </div>
-  </div>
+  <template name="works">
+{{> menu}}
 
   <div id="works" class="grad">
-  {{ #each work in single "Works" }}
-  <div class="work work-{{@index}}">
+  {{ #let work = getwork }}
+  <div class="work work-{{curindex}}">
   <div class="page-full">
   </div>
     <div class="left">
@@ -127,7 +121,7 @@
     
     
     <div class="right">
-      {{#each entrycur in (arrid work.fields.Entries)}}
+      {{#each entrycur in (sortEntryBy work.fields.Entries "cd" "des")}}
       {{#each entry in entrycur}}
       
       {{#if entry.fields.Photos}}
@@ -150,7 +144,7 @@
         {{#if eq (br entry.fields.Text) '<br>'}}
         {{else}}
         <div  class="entry-text">
-          {{br entry.fields.Text}}
+          {{entry.fields.Text}}
         </div>
         {{/if}}
 
@@ -169,7 +163,7 @@
 
 
   </div>
-  {{/each}}
+  {{/let}}
 </div>
 
 

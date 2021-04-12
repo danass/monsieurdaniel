@@ -2,6 +2,12 @@ Template.registerHelper("eq", function (a, b) {
   return a == b;
 });
 
+Template.registerHelper("iNe", function (a, b) {
+  if (a !==  undefined) {
+  return a.length !== 0
+  }
+});
+
 Template.registerHelper("has", function (a, b) {
   return a?.includes(b)
 });
@@ -35,22 +41,40 @@ Template.registerHelper("single", function (type) {
   return db.find({type:type})
 });
 
-Template.registerHelper("id", function (id) {
-  return db.find({_id: id})
-});
 
-Template.registerHelper("arrid", function (arr) {
+Template.registerHelper("sortWorkBy", function (arr, method = "cd", order = "des") {
   let sorting = [] 
   let entries = []
   arr?.map( (o,i) => {
-    sorting.push([o, new Date(db.findOne(o)?.createdTime)])
- 
-    
-    // entries.push(db.find({_id: o}))
+    // cd: CreatedDate, ab: Alphabetical, year: Year
+    if (method == "cd"){ sorting.push([o, new Date(db.findOne(o)?.createdTime)]) }
+    if (method == "ab"){ sorting.push([o, new Date(db.findOne(o)?.fields?.Name)]) }
+    if (method == "year"){ sorting.push([o, new Date(db.findOne(o)?.fields?.Year)]) }
   })
-  let allo = sorting.sort((a,b) =>  {return  b[1] - a[1] } )
-  // console.log(allo)
-  allo?.map(o => {
+  let sorted = sorting.sort((a,b) =>  {
+    // des: descending, asc: ascending
+    if(order== "des") {return  b[1] - a[1] }
+    if(order== "asc") {return  a[1] - b[1] }
+  })
+  sorted?.map(o => {
+    entries.push(db.find({_id: o[0] })) 
+  })
+  return entries
+});
+
+Template.registerHelper("sortEntryBy", function (arr, method = "cd", order = "des") {
+  let sorting = [] 
+  let entries = []
+  arr?.map( (o,i) => {
+    // cd: CreatedDate, ab: Alphabetical, year: Year
+    if (method == "cd"){ sorting.push([o, new Date(db.findOne(o)?.createdTime)]) }
+  })
+  let sorted = sorting.sort((a,b) =>  {
+    // des: descending, asc: ascending
+    if(order== "des") {return  b[1] - a[1] }
+    if(order== "asc") {return  a[1] - b[1] }
+  })
+  sorted?.map(o => {
     entries.push(db.find({_id: o[0] })) 
   })
   return entries

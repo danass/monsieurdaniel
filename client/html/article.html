@@ -1,7 +1,7 @@
-<template name="alive">
+<template name="article">
 
-{{#each work in id "reco7ZcDuGPXpWiva"}}
-{{#each entrycur in (arrid work.fields.Entries)}}
+{{#let work=fetch}}
+{{#each entrycur in (sortEntryBy work.fields.Entries)}}
 
 {{#each entry in entrycur}}
 <div class="entry {{strarr entry.fields.Scheme true}}">
@@ -23,6 +23,6 @@
 {{/each}}
 
 {{/each}}
-{{/each}}
+{{/let}}
 
 </template>
