@@ -13,7 +13,8 @@
   <div class="entry {{strarr entry.fields.Scheme true}}">
   
     <div  class="entry-text">
-      {{br entry.fields.Text}}
+      {{> entry_template entry=entry}}
+
     </div>
   
     <div class={{strarr entry.fields.Scheme}}>
@@ -27,4 +28,5 @@
   </div>
   </div>
 {{/let}}
+
   </template>

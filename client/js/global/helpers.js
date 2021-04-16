@@ -1,3 +1,6 @@
+import {md} from './markdown.js'
+
+
 Template.registerHelper("eq", function (a, b) {
   return a == b;
 });
@@ -12,19 +15,36 @@ Template.registerHelper("has", function (a, b) {
   return a?.includes(b)
 });
 
-Template.registerHelper("log", function (o) {
+Template.registerHelper("log", function (o, b) {
+  if(!b) {
   console.log(o)
+  }
+  if(b) {
+    console.log(o, b)
+    }
+
 });
 
 Template.registerHelper("lenindex", function (o) {
   return o?.length - 1
 });
 
+Template.registerHelper("len", function (o) {
+  return o.length
+});
+
+Template.registerHelper("lessthan", function (a, b) {
+  return a <= b
+});
+
 Template.registerHelper("fetch", function () {
 return db.findOne({ _id: this.params().id});
 });
 
-
+Template.registerHelper("id", function (i) {
+  console.log(i)
+  return db.findOne({ _id: i?.toString()});
+  }); 
 
 Template.registerHelper("date", function (o) {
   let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -35,6 +55,10 @@ Template.registerHelper("date", function (o) {
 Template.registerHelper("strmaxwords", function (str, n) {
 return str?.split(" ").splice(0,n).join(" ");
 });
+
+Template.registerHelper("typeof", function (o) {
+  return typeof(o)
+  });
 
 
 Template.registerHelper("single", function (type) {
@@ -98,8 +122,12 @@ Template.registerHelper("strarr", function (field, compact=false) {
   else { return '' }
 });
 
-//add a <br> to \n raw text
-Template.registerHelper("br", function (text) {
-  let str = text?.replace(/\n/gm, '\u003C\u0062\u0072\u003E')
-  return str
-})
+Blaze.Template.registerHelper("markdown", new Template('markdown', function () {
+  var view = this;
+  var content = '';
+  if (view.templateContentBlock) {
+    content = Blaze._toText(view.templateContentBlock, HTML.TEXTMODE.STRING);
+  }
+
+  return HTML.Raw(md.render(content));
+}));

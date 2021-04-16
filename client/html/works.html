@@ -1,171 +1,179 @@
   <template name="works">
-{{> menu}}
+    {{> menu}}
 
-  <div id="works" class="grad">
-  {{ #let work = getwork }}
-  <div class="work work-{{curindex}}">
-  <div class="page-full">
-  </div>
-    <div class="left">
-        <div class="sub-top">         <!-- HEADER TOP LEFT PAGE  -->        
-          <div class="title">
-          {{ work.fields.Name }}
+    <div id="works" class="grad">
+
+      {{ #let work = getwork }}
+
+      <div class="work work-{{curindex}}">
+        <div class="page-full">
+        </div>
+        <div class="left">
+          <div class="sub-top">
+            <!-- HEADER TOP LEFT PAGE  -->
+            <div class="title">
+              {{ work.fields.Name }}
+            </div>
+            <div class="s-yea">
+              {{ work.fields.Year}}
+            </div>
+            <div class="s-typ">
+              {{ work.fields.[Type of work]}}
+            </div>
           </div>
-          <div class="s-yea">
-            {{ work.fields.Year}}
-          </div>
-          <div class="s-typ">
-            {{ work.fields.[Type of work]}}
-          </div>
-        </div>
 
-      <div class="subs-left">
-        {{#if work.fields.[In collaboration with]}}
-        <div class="sub-block s-inc">
-        <div>Collaborators:</div>
-          <p>
-          {{work.fields.[In collaboration with]}}
-        </p>
-        </div>
-        {{/if}}
+          <div class="subs-left">
+            {{#if work.fields.[In collaboration with]}}
+            <div class="sub-block s-inc">
+              <div>Collaborators:</div>
+              <p>
+                {{work.fields.[In collaboration with]}}
+              </p>
+            </div>
+            {{/if}}
 
 
-        {{#if work.fields.[Special Thanks]}}
-        <div class="sub-block s-spe">
-          <div>Special Thanks:</div>
-          <p>
-          {{work.fields.[Special Thanks]}}
-        </p>
-        </div>
-        {{/if}}
+            {{#if work.fields.[Special Thanks]}}
+            <div class="sub-block s-spe">
+              <div>Special Thanks:</div>
+              <p>
+                {{work.fields.[Special Thanks]}}
+              </p>
+            </div>
+            {{/if}}
 
-        {{#if work.fields.[Shows]}}
-        <div class="sub-block s-sho">
-          <div>Passed Shows:</div>
-            {{#each id_ in work.fields.[Shows] }}
-            {{#each show in id id_}}
-            <p>
-              {{show.fields.Name}}
-            </p>
-            {{/each}}
-            {{/each}}
-        
-        </div>
-        {{/if}}
+            {{#if work.fields.[Shows]}}
+            <div class="sub-block s-sho">
+              <div>Passed Shows:</div>
+              {{#each id_ in work.fields.[Shows] }}
+              {{#each show in id id_}}
+              <p>
+                {{show.fields.Name}}
+              </p>
+              {{/each}}
+              {{/each}}
 
-        {{#if work.fields.[Venues]}}
-        <div class="sub-block s-ven">
-        <div>Venues:</div>
-            {{#each id_ in work.fields.[Venues] }}
-            {{#each venue in id id_}}
-              
+            </div>
+            {{/if}}
+
+            {{#if work.fields.[Venues]}}
+            <div class="sub-block s-ven">
+              <div>Venues:</div>
+              {{#each id_ in work.fields.[Venues] }}
+              {{#each venue in id id_}}
+
               <p>{{venue.fields.Name}}</p>
 
-            {{/each}}
-            {{/each}}
-        
-        </div>
-        {{/if}}
+              {{/each}}
+              {{/each}}
+
+            </div>
+            {{/if}}
 
 
 
-        {{#if work.fields.Materials}}
+            {{#if work.fields.Materials}}
 
-        <div class="sub-block s-mat"> 
-        <div>Materials:</div>
-          {{#each id_ in work.fields.Materials}}
-          {{#each material in id id_}}
-          <p>
-          {{material.fields.Name}}
-          </p>
-          {{/each}}
-          {{/each}}
-      </div>
-      {{/if}}
-        
-      </div>
+            <div class="sub-block s-mat">
+              <div>Materials:</div>
+              {{#each id_ in work.fields.Materials}}
+              {{#each material in id id_}}
+              <p>
+                {{material.fields.Name}}
+              </p>
+              {{/each}}
+              {{/each}}
+            </div>
+            {{/if}}
 
-        <div class="entries">
-        {{#if work.fields.Entries}}        <!-- ENTRIES  -->       
+          </div>
 
-        <div class="sub">
-          {{#each entryid in work.fields.Entries }}
-          {{#let pcount=@index}}          
-            {{#each entry in id entryid}}
+          <div class="entries">
+            {{#if work.fields.Entries}}
+            <!-- ENTRIES  -->
 
-            <div class="sub-block"> 
-                  {{#if eq pcount (lenindex work.fields.Entries)}}
+            <div class="sub">
+              {{#each entryid in work.fields.Entries }}
+              {{#let pcount=@index}}
+              {{#each entry in id entryid}}
 
-                  {{strmaxwords entry.fields.Text 10}}... <a href="#" class="alt">Read more </a>
-                  <div class="althidden">Scroll right side to continue reading</div>
+              <div class="sub-block">
+                {{#if eq pcount (lenindex work.fields.Entries)}}
 
-                
+                {{strmaxwords entry.fields.Text 10}}... <a href="#" class="alt">Read more </a>
+                <div class="althidden">Scroll right side to continue reading</div>
+
+
                 {{/if}}
               </div>
-           
-            {{/each}}
-            {{/let}}
+
+              {{/each}}
+              {{/let}}
+              {{/each}}
+            </div>
+            {{/if}}
+          </div> <!-- END ENTRIES  -->
+
+
+          {{#if work.fields.Status}}
+          <div class="sub-bottom">
+            Status:
+            {{work.fields.Status}}
+          </div>
+          {{/if}}
+        </div>
+
+
+        <div class="right">
+
+          {{#each entrycur in (sortEntryBy work.fields.Entries "cd" work.fields.direction)}}
+          {{#each entry in entrycur}}
+          {{#if entry.fields.Photos}}
+          {{#each photo in entry.fields.Photos}}
+          <div class="img-fullpage page page-{{@index}}" style="background-image: url('{{photo.url}}')"></div>
+          {{#if has entry.fields.Meta 'No-caption'}}
+          {{else}}
+          <div class="caption">{{photo.filename}}</div>
+          {{/if}}
           {{/each}}
+          {{/if}}
+          
+          {{#if has entry.fields.Meta 'Date'}}
+          <div class="entry-date">
+            {{date entry.fields.date_created}}
+          </div>
+          {{/if}}
+
+          
+          <div class="entry">
+            <div class="entry-text">
+            {{> entry_template entry=entry}}
+            </div>
+            {{#if has entry.fields.Meta 'Unique'}}
+            <div class="unique">
+              <a href="/entry/{{entry.id}}">open</a>
+            </div>
+            {{else}}
+            {{/if}}
+          </div>
+
+          {{/each}}
+
+          {{/each}}
+
         </div>
-        {{/if}}
-      </div>  <!-- END ENTRIES  -->   
 
 
-      {{#if work.fields.Status}}
-      <div class="sub-bottom">
-        Status:
-        {{work.fields.Status}}
-      </div>
-      {{/if}}
-    </div>              
-    
-    
-    <div class="right">
-      {{#each entrycur in (sortEntryBy work.fields.Entries "cd" "des")}}
-      {{#each entry in entrycur}}
-      
-      {{#if entry.fields.Photos}}
-      {{#each photo in entry.fields.Photos}} 
-      <div class="img-fullpage page page-{{@index}}" style="background-image: url('{{photo.url}}')"></div>
-      {{#if has entry.fields.Meta 'No-caption'}}
-      {{else}}
-      <div class="caption">{{photo.filename}}</div>
-      {{/if}}
-      {{/each}}
-      {{/if}}
-
-      {{#if has entry.fields.Meta 'Date'}}
-      <div class="entry-date">
-        {{date entry.fields.date_created}}
-      </div>
-      {{/if}}
-      
-      <div class="entry {{strarr entry.fields.Scheme true}}">
-        {{#if eq (br entry.fields.Text) '<br>'}}
-        {{else}}
-        <div  class="entry-text">
-          {{entry.fields.Text}}
-        </div>
-        {{/if}}
-
-        {{#if has entry.fields.Meta 'Unique'}}
-        <div class="unique">
-          <a href="/entry/{{entry.id}}">open</a>
-        </div>
-        {{else}}
-        {{/if}}
       </div>
 
-      {{/each}}
-      
-      {{/each}}
+      {{/let}}
+
+
     </div>
 
 
-  </div>
-  {{/let}}
-</div>
+  </template>
 
-
-</template>
-
+  <template name="entry_template">
+    {{#markdown}}{{{entry.fields.Text}}}{{/markdown}}
+  </template>
