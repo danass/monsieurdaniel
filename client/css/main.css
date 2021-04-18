@@ -76,6 +76,12 @@ body {
     cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" style="font-size: 40px; font-color:white;"><text y="40">🦄</text></svg>'), auto;
   }
 
+#up:hover, #down:hover {
+  cursor:move;
+
+}
+
+
 
 #menu-left {
   position: relative;
@@ -130,7 +136,7 @@ div#nav {
   font-size: 3vh;
 }
 
-#prev:hover, #next:hover {
+#prev:hover, #next:hover, #up:hover, #down:hover {
   font-weight: bold;
 }
 

@@ -8,43 +8,51 @@ Template.works.onCreated(function () {
 
     this.curindex = new ReactiveVar(0)
     Tracker.autorun(() => {
-      this.dblen = new ReactiveVar(Object.values(db.find({type:"Works"}).map(e => {return e.id})).length )
+      this.worksdb = new ReactiveVar(db.find({type:"Works", 'fields.unpublished' : {$exists: false} })  )
     })
+    this.dir = new ReactiveVar(1)
 })
 
 Template.works.helpers({
-  single(type) { return db.find({type:type}) },
   id(id) { return db.find({_id: id}) },
   getwork() {
-    let ids = Object.values(db.find({type:"Works"}).map(e => {return e.id}))
+    let ids = Object.values(Template.instance().worksdb.get().map(e => {return e.id}))
     let index = Template.instance().curindex.get()
-    let getwork = db.findOne({_id: ids[index]})
-    return getwork 
+    return db.findOne({_id: ids[index]})
   },
-  curindex() { return Template.instance().curindex.get() },
-  getentries() {
-    let ids = Object.values(db.find({type:"Works"}).map(e => {return e.id}))
+  entries(workid) {
+    return db.find({ 'fields.Work': workid }, { sort: { createdTime: Template.instance().dir.get() } });
+  },
+  workid() {
+    let ids = Object.values(Template.instance().worksdb.get().map(e => {return e.id}))
     let index = Template.instance().curindex.get()
-    list = db.findOne({_id: ids[index]}).fields['Entries']
-    return db.find({_id: {$in: list}}) 
+    return ids[index]    
   }
 });
 
 Template.works.events({
   'click .alt' (e, i) {
-      $('.right').animate({
-          scrollTop: $(".caption").offset().top},'slow')
+      // $('.right').animate({
+      //     scrollTop: $(".caption").offset().top},'slow')
   },
   'click #next' (e, i) {
-    let dblen = i.dblen.get()
+    let dblen = Template.instance().worksdb.get().count() - 1
     let index = i.curindex.get()
     i.curindex.set(index +1)
     if (i.curindex.get() == dblen) { i.curindex.set(0) }   
   },
   'click #prev' (e, i) {
-    let dblen = i.dblen.get()
+    
+    let dblen = Template.instance().worksdb.get().count() -1
     let index = i.curindex.get()
     i.curindex.set(index -1)
     if (i.curindex.get() <= -1) { i.curindex.set(dblen-1) }
-  } 
+  },
+  'click #up' (e, t) {
+    t.dir.set(-1)
+  },
+  'click #down' (e, t) {
+    t.dir.set(1)
+  }
+
 })

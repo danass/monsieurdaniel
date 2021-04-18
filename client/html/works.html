@@ -126,8 +126,7 @@
 
         <div class="right">
 
-          {{#each entrycur in (sortEntryBy work.fields.Entries "cd" work.fields.direction)}}
-          {{#each entry in entrycur}}
+          {{#each entry in entries workid}}
           {{#if entry.fields.Photos}}
           {{#each photo in entry.fields.Photos}}
           <div class="img-fullpage page page-{{@index}}" style="background-image: url('{{photo.url}}')"></div>
@@ -159,7 +158,6 @@
 
           {{/each}}
 
-          {{/each}}
 
         </div>
 

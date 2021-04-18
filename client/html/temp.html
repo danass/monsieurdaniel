@@ -4,12 +4,12 @@
   <div id="temp">
 </div>
 <div class="entry">
-    {{#each entryid in getwork.fields.Entries}} 
-    {{#let entry = (id entryid) }}
+
     <div class="entry-text">
-      {{> entry_template entry=entry}}
+      
+      {{#each entry in entries workid}}
+      {{entry.fields.Text}}
+      {{/each}}
   </div>
-    {{/let}}
-    {{/each}}
   </div>
 </template>

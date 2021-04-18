@@ -41,10 +41,9 @@ Template.registerHelper("fetch", function () {
 return db.findOne({ _id: this.params().id});
 });
 
-Template.registerHelper("id", function (i) {
-  console.log(i)
-  return db.findOne({ _id: i?.toString()});
-  }); 
+// Template.registerHelper("id", function (i) {
+//   return db.findOne({ _id: i?.toString()});
+//   }); 
 
 Template.registerHelper("date", function (o) {
   let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
