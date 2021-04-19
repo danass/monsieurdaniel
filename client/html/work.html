@@ -1,10 +1,14 @@
 <template name="work">
+  {{> menu}}
+  <div class="singlework">
   {{#if eq orientation true}}
-  {{#each entry in entries currentworkid}}
+  {{log requestedid}}
+  {{#each entry in entries requestedid}}
   
-  <div class="entry">
+  
     {{#if entry.fields.Photos}}
     {{#each photo in entry.fields.Photos}}
+    <div class="entry">
       <div class="entryphoto">
         <img src="{{photo.url}}" />
       </div>
@@ -12,17 +16,18 @@
           {{else}}
           <div class="caption">{{photo.filename}}</div>
         {{/if}}
+      </div>
     {{/each}}
-  {{/if}}
-    <div class="entry-text">
-      {{> entry_template entry=entry}}
-    </div>
+  {{/if}} 
 
-</div>
+      {{> entry_template entry=entry}}
+
+
+
   {{/each}}
 
   {{else}}
   {{> portrait}}
   {{/if}}
-
+  </div>
 </template>

@@ -5,3 +5,7 @@
   height: 100vh;
   -webkit-writing-mode: vertical-rl;
 }
+
+#menu {
+  position: fixed;
+}

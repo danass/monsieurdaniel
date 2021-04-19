@@ -146,9 +146,8 @@
 
           
           <div class="entry">
-            <div class="entry-text">
+
             {{> entry_template entry=entry}}
-            </div>
             {{#if has entry.fields.Meta 'Unique'}}
             <div class="unique">
               <a href="/entry/{{entry.id}}">open</a>
@@ -177,7 +176,14 @@
   </template>
 
   <template name="entry_template">
+
+    {{#if iNe entry.fields.Text}}
+    <div class="entry">
+    <div class="entry-text">
     {{#markdown}}{{{entry.fields.Text}}}{{/markdown}}
+    </div>
+    </div>
+    {{/if}}
   </template>
 
   <template name="portrait">
@@ -186,6 +192,5 @@
     Mettez votre téléphone en position paysage.
     Dir tiliphoune dialk f mode pizaj
   </div>
-
 
   </template>

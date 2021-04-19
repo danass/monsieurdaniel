@@ -11,12 +11,20 @@ body {
 
 
 .grad {
-  background: linear-gradient(19deg, #a2a2a2, #203a46, #2f2420, #d5d5d5, #e4e4e4, #000000, #c6c6c6, #c6c6c6, #c6c6c6, #555555, #959595, #d1d1d1, #d1d1d1, #292929, #2a3071, #252527);
+  /* background: linear-gradient(19deg, #a2a2a2, #203a46, #2f2420, #d5d5d5, #e4e4e4, #000000, #c6c6c6, #c6c6c6, #c6c6c6, #555555, #959595, #d1d1d1, #d1d1d1, #292929, #2a3071, #252527);
   background-size: 3200% 3200%;
 
   -webkit-animation: AnimationName 59s ease infinite;
   -moz-animation: AnimationName 59s ease infinite;
-  animation: AnimationName 59s ease infinite;
+  animation: AnimationName 59s ease infinite; */
+
+    background: linear-gradient(
+275deg
+, #a2a2a2, #203a46, #2f2420, #d5d5d5, #e4e4e4, #000000, #c6c6c6, #c6c6c6, #c6c6c6, #555555, #959595, #d1d1d1, #d1d1d1, #292929, #2a3071, #252527);
+    background-size: 40.1% 20.5%;
+    -moz-animation: AnimationName 59s ease infinite;
+    animation: AnimationName 520s cubic-bezier(0.21, 1.12, 0.96, -27270.78) infinite;
+
 }
 
 @-webkit-keyframes AnimationName {
@@ -246,5 +254,9 @@ body {
   height:100%;
   background-position: center;
   background-size: contain;
+  margin-bottom: 9vh;
 }
 
+.entryphoto :last-of-type, .entryphoto:nth-last-child(0)   {
+  margin-bottom: 0vh!important;
+}
