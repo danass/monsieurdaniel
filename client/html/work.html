@@ -1,0 +1,28 @@
+<template name="work">
+
+
+  {{#each entry in entries currentworkid}}
+
+  <div class="entry">
+    {{#if entry.fields.Photos}}
+    {{#each photo in entry.fields.Photos}}
+      {{log photo}}
+      <div class="entryphoto">
+        <img src="{{photo.url}}" />
+      </div>
+        {{#if has entry.fields.Meta 'No-caption'}}
+          {{else}}
+          <div class="caption">{{photo.filename}}</div>
+        {{/if}}
+    {{/each}}
+  {{/if}}
+    <div class="entry-text">
+      {{> entry_template entry=entry}}
+    </div>
+
+</div>
+  {{/each}}
+
+
+
+</template>

@@ -28,3 +28,10 @@
       BlazeLayout.render('temp', {params: params})
     }
   })
+
+  FlowRouter.route('/work/:id', {
+    name: 'work',
+    action(params, queryParams) {
+      BlazeLayout.render('work', {params: params})
+    }
+  })
