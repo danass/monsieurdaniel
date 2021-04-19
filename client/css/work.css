@@ -1,8 +1,13 @@
+.entryphoto {
+  width: 96vw;
+}
+
 .entryphoto img {
   width: 100%;
+  display: block;
+  padding: 1vh;
 }
 
 .singlework {
   padding: 2vh 1vw 2vh 1vw;
 }
-
