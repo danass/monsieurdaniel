@@ -1,8 +1,8 @@
 Template.works.onCreated(function () { 
-  this.orientation = new ReactiveVar(screen.orientation.type.match(/\w+/)[0])
-  screen.orientation.onchange = function (){
-    instance.orientation.set(screen.orientation.type.match(/\w+/)[0])
-  }
+  // this.orientation = new ReactiveVar(screen.orientation.type.match(/\w+/)[0])
+  // screen.orientation.onchange = function (){
+  //   instance.orientation.set(screen.orientation.type.match(/\w+/)[0])
+  // }
 
   $(document).on('keyup', (e) => {
     if (e.key == 'ArrowRight') { }
@@ -12,12 +12,12 @@ Template.works.onCreated(function () {
 
     this.curindex = new ReactiveVar(0)
     Tracker.autorun(() => {
-      console.log("ahahah")
+    //   console.log("ahahah")
       this.worksdb = new ReactiveVar(db.find({type:"Works", 'fields.unpublished' : {$exists: false} })  )
-      let coco = this
-      screen.orientation.onchange = function (){
-      coco.orientation.set(screen.orientation.type.match(/\w+/)[0])
-    }
+    //   let coco = this
+    //   screen.orientation.onchange = function (){
+    //   coco.orientation.set(screen.orientation.type.match(/\w+/)[0])
+    // }
     })
     this.dir = new ReactiveVar(1)
 })
@@ -37,11 +37,11 @@ Template.works.helpers({
     let index = Template.instance().curindex.get()
     return ids[index]    
   },
-  orientation() {
-    console.log(Template.instance().orientation.get())
+  // orientation() {
+  //   console.log(Template.instance().orientation.get())
 
-    return Template.instance().orientation.get()
-  }
+  //   return Template.instance().orientation.get()
+  // }
 });
 
 Template.works.events({
