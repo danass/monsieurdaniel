@@ -1,6 +1,6 @@
 Template.works.onCreated(function () { 
   
-  this.orientation = new ReactiveVar(window.innerHeight > window.innerWidth)
+  this.orientation = new ReactiveVar(window.innerHeight < window.innerWidth)
 
   $(document).on('keyup', (e) => {
     if (e.key == 'ArrowRight') { }
@@ -12,7 +12,7 @@ Template.works.onCreated(function () {
     Tracker.autorun(() => {
       let scopethis = this
       window.addEventListener('resize', function() {
-        scopethis.orientation.set(window.innerHeight > window.innerWidth)
+        scopethis.orientation.set(window.innerHeight < window.innerWidth)
       })
 
       this.worksdb = new ReactiveVar(db.find({type:"Works", 'fields.unpublished' : {$exists: false} })  )
@@ -28,7 +28,6 @@ Template.works.helpers({
     return db.findOne({_id: ids[index]})
   },
   entries(workid) {
-    console.log()
     return db.find({ 'fields.Work': workid }, { sort: { createdTime: Template.instance().dir.get() } });
   },
   workid() {
@@ -36,11 +35,9 @@ Template.works.helpers({
     let index = Template.instance().curindex.get()
     return ids[index]    
   },
-  // orientation() {
-  //   console.log(Template.instance().orientation.get())
-
-  //   return Template.instance().orientation.get()
-  // }
+  orientation() {
+    return Template.instance().orientation.get()
+  }
 });
 
 Template.works.events({
@@ -65,7 +62,6 @@ Template.works.events({
     t.dir.set(-1)
   },
   'click #down' (e, t) {
-    console.log(screen.orientation.type.match(/\w+/)[0])
     t.dir.set(1)
   }
 
