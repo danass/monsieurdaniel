@@ -62,6 +62,9 @@ Template.works.events({
   },
   'click #down' (e, t) {
     t.dir.set(1)
+  },
+  'deviceorientation true' (e, t) {
+    console.log("wow", e)
   }
 
 })
