@@ -10,13 +10,7 @@ Template.works.onCreated(function () {
 
     this.curindex = new ReactiveVar(0)
     Tracker.autorun(() => {
-
       this.worksdb = new ReactiveVar(db.find({type:"Works", 'fields.unpublished' : {$exists: false} })  )
-      let scopedthis = this
-      screen.orientation.onchange = function (){
-        scopedthis.orientation.set(window.innerHeight > window.innerWidth)
-        console.log("eheh")
-    }
     })
     this.dir = new ReactiveVar(1)
 })
@@ -69,8 +63,11 @@ Template.works.events({
     console.log(screen.orientation.type.match(/\w+/)[0])
     t.dir.set(1)
   },
-  // 'deviceorientation true' (e, t) {
-  //   console.log("wow", e)
-  // }
+  'resize' (e, t) {
+    console.log("wow")
+  },
+  'orientationchange' (e, t) {
+    console.log("oh")
+  }
 
 })
