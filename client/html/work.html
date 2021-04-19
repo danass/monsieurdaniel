@@ -1,12 +1,10 @@
 <template name="work">
-
-
+  {{#if eq orientation 'landscape'}}
   {{#each entry in entries currentworkid}}
-
+  
   <div class="entry">
     {{#if entry.fields.Photos}}
     {{#each photo in entry.fields.Photos}}
-      {{log photo}}
       <div class="entryphoto">
         <img src="{{photo.url}}" />
       </div>
@@ -23,6 +21,8 @@
 </div>
   {{/each}}
 
-
+  {{else}}
+  {{> portrait}}
+  {{/if}}
 
 </template>

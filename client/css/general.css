@@ -1,0 +1,7 @@
+.portraitwarning {
+  font-size: 10vw;
+  text-align: center;
+  width: 80%;
+  height: 100vh;
+  -webkit-writing-mode: vertical-rl;
+}
