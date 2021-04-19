@@ -3,7 +3,7 @@ Template.works.onCreated(function () {
   screen.orientation.onchange = function (){
     instance.orientation.set(screen.orientation.type.match(/\w+/)[0])
   }
-  
+
   $(document).on('keyup', (e) => {
     if (e.key == 'ArrowRight') { }
     if (e.key == 'ArrowLeft') { }
@@ -12,10 +12,11 @@ Template.works.onCreated(function () {
 
     this.curindex = new ReactiveVar(0)
     Tracker.autorun(() => {
+      console.log("ahahah")
       this.worksdb = new ReactiveVar(db.find({type:"Works", 'fields.unpublished' : {$exists: false} })  )
-      let instance = this
+      let coco = this
       screen.orientation.onchange = function (){
-      instance.orientation.set(screen.orientation.type.match(/\w+/)[0])
+      coco.orientation.set(screen.orientation.type.match(/\w+/)[0])
     }
     })
     this.dir = new ReactiveVar(1)

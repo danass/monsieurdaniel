@@ -1,5 +1,5 @@
 <template name="work">
-  {{#if eq orientation 'landscape'}}
+
   {{#each entry in entries currentworkid}}
   
   <div class="entry">
@@ -21,8 +21,5 @@
 </div>
   {{/each}}
 
-  {{else}}
-  {{> portrait}}
-  {{/if}}
 
 </template>
