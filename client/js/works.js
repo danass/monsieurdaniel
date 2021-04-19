@@ -7,14 +7,12 @@ Template.works.onCreated(function () {
     if (e.key == 'ArrowLeft') { }
     // if (e.key == 'Escape') {  }
   });
-
     this.curindex = new ReactiveVar(0)
     Tracker.autorun(() => {
       let scopethis = this
       window.addEventListener('resize', function() {
         scopethis.orientation.set(window.innerHeight < window.innerWidth)
       })
-
       this.worksdb = new ReactiveVar(db.find({type:"Works", 'fields.unpublished' : {$exists: false} })  )
     })
     this.dir = new ReactiveVar(1)
@@ -42,7 +40,7 @@ Template.works.helpers({
 
 Template.works.events({
   'click .alt' (e, i) {
-      // $('.right').animate({
+      // $('.right').css({
       //     scrollTop: $(".caption").offset().top},'slow')
   },
   'click #next' (e, i) {
@@ -50,9 +48,10 @@ Template.works.events({
     let index = i.curindex.get()
     i.curindex.set(index +1)
     if (i.curindex.get() == dblen) { i.curindex.set(0) }   
+    $('#works').addClass('grad-0')
+    $('#works').removeClass('grad')
   },
   'click #prev' (e, i) {
-    
     let dblen = Template.instance().worksdb.get().count()
     let index = i.curindex.get()
     i.curindex.set(index -1)
@@ -63,6 +62,11 @@ Template.works.events({
   },
   'click #down' (e, t) {
     t.dir.set(1)
+  },
+  'click #home' (e, i) {
+    i.curindex.set(0)
   }
 
 })
+
+

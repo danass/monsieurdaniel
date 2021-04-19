@@ -1,0 +1,37 @@
+div#home a {
+  text-decoration: none;
+  color: black;
+}
+
+#menu {
+  position: fixed;
+  top: 0;
+}
+
+
+div#nav div {
+  padding: 0vw 0.5vw 0vw 0.5vw;
+  height: 4vh;
+}
+
+#nav #next {
+  background-color: #fff7f7;
+  width: 50%;
+}
+
+#nav #prev {
+  background-color: #e7e7e7;
+  width: 50%;
+  
+}
+
+div#nav {
+  display: inline-flex;
+  min-height: 4vh;
+  align-items: center;
+  font-size: 3vh;
+}
+
+#nav div:hover {
+  font-weight: bold;
+}
