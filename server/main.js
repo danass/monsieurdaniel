@@ -64,7 +64,6 @@ async function update(ledger) {
         })
         promise.then(r=> {
             let table = r.config.url.slice(46, -26) // return table name ['users'... ]
-
             r.data.records.map(record => {
                 record['type'] = table
                 db.upsert(record.id, record)
@@ -98,7 +97,7 @@ async function update(ledger) {
         differenceIds.forEach(id =>
              {
                console.log("removing?")
-              // console.log("hey", differenceIds.size, id.type)
+              console.log("hey", differenceIds.size, id.type)
               // checking consistency: if memory buffer average is consistent (average of buffer == db size) 
               if (memory.reduce((a, b) => { return (a + b)/ memory.length }) == dbIdsCopy.size) {
                 console.log("yes")
