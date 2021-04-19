@@ -9,6 +9,10 @@ Template.works.onCreated(function () {
     this.curindex = new ReactiveVar(0)
     Tracker.autorun(() => {
       this.worksdb = new ReactiveVar(db.find({type:"Works", 'fields.unpublished' : {$exists: false} })  )
+      let instance = this
+      screen.orientation.onchange = function (){
+      instance.orientation.set(screen.orientation.type.match(/\w+/)[0])
+    }
     })
     this.dir = new ReactiveVar(1)
 })
@@ -27,6 +31,9 @@ Template.works.helpers({
     let ids = Object.values(Template.instance().worksdb.get().map(e => {return e.id}))
     let index = Template.instance().curindex.get()
     return ids[index]    
+  },
+  orientation() {
+    return Template.instance().orientation.get()
   }
 });
 
