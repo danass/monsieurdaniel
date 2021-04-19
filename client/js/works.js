@@ -1,5 +1,5 @@
 Template.works.onCreated(function () { 
-  this.orientation = new ReactiveVar(screen.orientation.type.match(/\w+/)[0])
+  this.orientation = new ReactiveVar()
   // screen.orientation.onchange = function (){
   //   instance.orientation.set(screen.orientation.type.match(/\w+/)[0])
   // }
@@ -66,10 +66,11 @@ Template.works.events({
     t.dir.set(-1)
   },
   'click #down' (e, t) {
+    console.log(screen.orientation.type.match(/\w+/)[0])
     t.dir.set(1)
   },
-  'deviceorientation true' (e, t) {
-    console.log("wow", e)
-  }
+  // 'deviceorientation true' (e, t) {
+  //   console.log("wow", e)
+  // }
 
 })
