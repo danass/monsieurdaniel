@@ -1,6 +1,6 @@
 Template.work.onCreated(function () { 
     this.curindex = new ReactiveVar(0)
-    // this.orientation = new ReactiveVar(screen.orientation.type.match(/\w+/)[0])
+    this.orientation = new ReactiveVar(screen.orientation.type.match(/\w+/)[0])
     Tracker.autorun((i, e) => {
       this.worksdb = new ReactiveVar(db.find({type:"Works", 'fields.unpublished' : {$exists: false} })  )
     //   let instance = this
