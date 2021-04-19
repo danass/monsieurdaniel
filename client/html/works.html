@@ -2,7 +2,7 @@
     {{#if eq orientation true}}
     {{> menu}}
 
-    <div id="works" class="grad">
+    <div id="works" class="grad-0">
 
       {{ #let work = getwork }}
 
@@ -157,11 +157,7 @@
           </div>
 
           {{/each}}
-
-
         </div>
-
-
       </div>
 
       {{/let}}
@@ -182,7 +178,7 @@
     <div class="entry-text">
     {{#markdown}}{{{entry.fields.Text}}}{{/markdown}}
     </div>
-    </div>
+      </div>
     {{/if}}
   </template>
 
