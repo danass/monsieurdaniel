@@ -1,8 +1,6 @@
 Template.works.onCreated(function () { 
-  this.orientation = new ReactiveVar()
-  // screen.orientation.onchange = function (){
-  //   instance.orientation.set(screen.orientation.type.match(/\w+/)[0])
-  // }
+  
+  this.orientation = new ReactiveVar(window.innerHeight > window.innerWidth)
 
   $(document).on('keyup', (e) => {
     if (e.key == 'ArrowRight') { }
@@ -12,12 +10,13 @@ Template.works.onCreated(function () {
 
     this.curindex = new ReactiveVar(0)
     Tracker.autorun(() => {
-    //   console.log("ahahah")
+
       this.worksdb = new ReactiveVar(db.find({type:"Works", 'fields.unpublished' : {$exists: false} })  )
-    //   let coco = this
-    //   screen.orientation.onchange = function (){
-    //   coco.orientation.set(screen.orientation.type.match(/\w+/)[0])
-    // }
+      let scopedthis = this
+      screen.orientation.onchange = function (){
+        scopedthis.orientation.set(window.innerHeight > window.innerWidth)
+        console.log("eheh")
+    }
     })
     this.dir = new ReactiveVar(1)
 })
@@ -30,6 +29,7 @@ Template.works.helpers({
     return db.findOne({_id: ids[index]})
   },
   entries(workid) {
+    console.log()
     return db.find({ 'fields.Work': workid }, { sort: { createdTime: Template.instance().dir.get() } });
   },
   workid() {
