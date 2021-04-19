@@ -10,6 +10,11 @@ Template.works.onCreated(function () {
 
     this.curindex = new ReactiveVar(0)
     Tracker.autorun(() => {
+      let scopethis = this
+      window.addEventListener('resize', function() {
+        scopethis.orientation.set(window.innerHeight > window.innerWidth)
+      })
+
       this.worksdb = new ReactiveVar(db.find({type:"Works", 'fields.unpublished' : {$exists: false} })  )
     })
     this.dir = new ReactiveVar(1)
@@ -62,12 +67,6 @@ Template.works.events({
   'click #down' (e, t) {
     console.log(screen.orientation.type.match(/\w+/)[0])
     t.dir.set(1)
-  },
-  'resize' (e, t) {
-    console.log("wow")
-  },
-  'orientationchange' (e, t) {
-    console.log("oh")
   }
 
 })
