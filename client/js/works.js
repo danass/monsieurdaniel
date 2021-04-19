@@ -1,5 +1,5 @@
 Template.works.onCreated(function () { 
-
+  this.orientation = new ReactiveVar(screen.orientation.type.match(/\w+/)[0])
   $(document).on('keyup', (e) => {
     if (e.key == 'ArrowRight') { }
     if (e.key == 'ArrowLeft') { }
@@ -33,6 +33,8 @@ Template.works.helpers({
     return ids[index]    
   },
   orientation() {
+    console.log(Template.instance().orientation.get())
+
     return Template.instance().orientation.get()
   }
 });
