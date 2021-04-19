@@ -1,5 +1,9 @@
 Template.works.onCreated(function () { 
   this.orientation = new ReactiveVar(screen.orientation.type.match(/\w+/)[0])
+  screen.orientation.onchange = function (){
+    instance.orientation.set(screen.orientation.type.match(/\w+/)[0])
+  }
+  
   $(document).on('keyup', (e) => {
     if (e.key == 'ArrowRight') { }
     if (e.key == 'ArrowLeft') { }
