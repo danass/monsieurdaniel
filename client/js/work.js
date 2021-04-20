@@ -52,5 +52,9 @@ Template.work.events({
   },
   'click #down' (e, t) {
     t.dir.set(1)
+  },
+  'click #home' (e, i) {
+    i.curindex.set(0)
   }
+
 })

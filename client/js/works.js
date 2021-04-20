@@ -48,12 +48,12 @@ Template.works.events({
     let index = i.curindex.get()
     i.curindex.set(index +1)
     if (i.curindex.get() == dblen) { i.curindex.set(0) }   
-    $('#works').removeClass('grad-' + i.gradient.get() )
-    i.gradient.set(i.gradient.get() +1)
-    if (i.gradient.get() >= 3) {
-      i.gradient.set(0)
-    }
-    $('#works').addClass('grad-' + i.gradient.get()  )
+    // $('#works').removeClass('grad-' + i.gradient.get() )
+    // i.gradient.set(i.gradient.get() +1)
+    // if (i.gradient.get() >= 6) {
+    //   i.gradient.set(0)
+    // }
+    // $('#works').addClass('grad-' + i.gradient.get()  )
     
     $('.right').prop("scrollTop",0); 
     
