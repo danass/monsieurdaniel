@@ -64,12 +64,9 @@ animation: AnimationName 50000s cubic-bezier(0.21, 1.12, 0.96, -27270.78) infini
 } */
 
 .grad-0 {
-  /* background: radial-gradient(circle at 50% 50%, #ffffff, #243966, #0e0b1c, #192228, #0a3831, #1f005c);
-  background-size: 0.09% 0.099%;
-  animation: rotation 2s linear infinite; */
-  background: radial-gradient(circle at 50% 5%, #ffffff, #243966, #0e0b1c, #192228, #0a3831, #1f005c);
-  background-size: 100.09% 100.099%;
-  animation: rotation 5.6s linear infinite;
+  background: radial-gradient(circle at 50% 40%, #ffffff, #243966, #0e0b1c, #192228, #0a3831, #1f005c);
+  background-size: 24.09% 0.099%;
+  animation: rotation 0.05s linear infinite;
 }
 
 @keyframes rotation {
@@ -89,6 +86,7 @@ animation: AnimationName 50000s cubic-bezier(0.21, 1.12, 0.96, -27270.78) infini
   overflow: hidden;
   top: -2000px;
   left: -500px;
+  
 }
 
 #background2 {
@@ -98,17 +96,27 @@ animation: AnimationName 50000s cubic-bezier(0.21, 1.12, 0.96, -27270.78) infini
   top: -2000px;
   left: -500px;
   opacity: 1;
-  mix-blend-mode: screen;
+  mix-blend-mode: hard-light;
 }
 
+#background3 {
+  height: 5060px;
+  width: 5160px;
+  position: fixed;
+  top: -2000px;
+  left: -500px;
+  opacity: 1;
+  mix-blend-mode: luminosity;
+
+}
 
 .grad-1 {
   background: linear-gradient(
-275deg
+270deg
 , #a2a2a2, #203a46, #2f2420, #d5d5d5, #e4e4e4, #000000, #c6c6c6, #c6c6c6, #c6c6c6, #555555, #959595, #d1d1d1, #d1d1d1, #292929, #2a3071, #252527);
   /* background-size: 40.1% 20.5%; */
   /* -moz-animation: AnimationName 59s ease infinite; */
-  animation: rotation2 20.6s linear infinite;
+  /* animation: rotation2 7.6s linear infinite; */
 }
 
 @keyframes rotation2 {
@@ -119,3 +127,11 @@ animation: AnimationName 50000s cubic-bezier(0.21, 1.12, 0.96, -27270.78) infini
     transform: rotate(0deg);
   }
 }
+
+.grad-2 {
+  background: linear-gradient( 
+  275deg
+  , #a2a2a2, #203a46, #2f2420, #d5d5d5, #e4e4e4, #000000, #c6c6c6, #c6c6c6, #c6c6c6, #555555, #959595, #d1d1d1, #d1d1d1, #292929, #2a3071, #252527);
+  background-size: 100.1% 0.5%;
+  animation: AnimationName 1s linear infinite;
+  }

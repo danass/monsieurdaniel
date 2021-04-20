@@ -4,10 +4,10 @@ div#home a {
 }
 
 #menu {
-  position: fixed;
-  top: 0.5vh;
   Z-INDEX: 1;
-  left: 1vw;
+  background: #ffffff2e;
+  text-align: -webkit-center;
+  position: relative;
 }
 
 
