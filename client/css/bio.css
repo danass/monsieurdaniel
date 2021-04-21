@@ -1,0 +1,20 @@
+#bio {
+  height: 50vh;
+  position: fixed;
+  width: calc(100vw - 30vw);
+  padding: 5vw 15vw 15vw 15vw;
+  z-index: 2;
+  font-size: 2vw;
+  word-break: break-word;
+  background: #fffffff7;
+  text-align: justify;
+  transition: 1s;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.nobio  {
+  height: 0vh!important;
+  padding: 0vw 15vw 0vw 15vw!important;
+  overflow: hidden!important;
+}
+

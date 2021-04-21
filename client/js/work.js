@@ -55,6 +55,12 @@ Template.work.events({
   },
   'click #home' (e, i) {
     i.curindex.set(0)
+  },
+  'click #bio' (e, i) {
+    $('#bio').addClass('nobio')
+  },
+  'click #getbio' (e, i) {
+    $('#bio').removeClass('nobio')
   }
 
 })

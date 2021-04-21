@@ -75,3 +75,19 @@ Template.works.events({
 })
 
 
+Template.menu.events({
+  'click #bio' (e, i) {
+    $('#bio').addClass('nobio')
+  },
+  'click #getbio' (e, i) {
+    $('#bio').removeClass('nobio')
+  } 
+})
+
+Template.menu.helpers({
+  getbio() {
+    return db.find({_id: "recdZe6i8XsaKbToQ"})
+  },
+  id(id) { return db.find({_id: id}) }
+})
+

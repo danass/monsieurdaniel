@@ -10,9 +10,12 @@ div#home a {
   position: relative;
 }
 
+#getbio {
+  background: #ffffff12;
+}
 
 #up, #down, #home {
-  background-color: #e7e7e7;
+  background-color: #e7e7e745;;
   width: 50%;
 }
 
