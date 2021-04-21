@@ -13,7 +13,7 @@ Template.works.onCreated(function () {
       window.addEventListener('resize', function() {
         scopethis.orientation.set(window.innerHeight < window.innerWidth)
       })
-      this.worksdb = new ReactiveVar(db.find({type:"Works", 'fields.unpublished' : {$exists: false} })  )
+      this.worksdb = new ReactiveVar(db.find({type:"Works", 'fields.unpublished' : {$exists: false} }, { sort: { "fields.Typeofwork": 1 } }  )  )
     })
     this.dir = new ReactiveVar(1)
 })
