@@ -1,0 +1,16 @@
+.s-typ {
+float:left;
+padding:0.5vh;
+border-radius: 5px;
+color: white;
+}
+
+.subs-left {
+  float: left;
+  width: 100%;
+}
+
+.title {
+  font-size: clamp(100%, 3.3vmax, 3vmax);
+    font-weight:700;
+}

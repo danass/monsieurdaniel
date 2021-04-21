@@ -36,7 +36,7 @@ body {
 }
 
 .page, .work, .left, .right, .page-full, div, .img-fullpage, window {
-  transition: width 2s, height 2s, visibility 2s, click 2s, display 2s, opacity 2s, background-color 1s;
+  transition: width 2s, height 2s, visibility 2s, click 2s, display 2s, opacity 2s, background-color 0.2s;
   scroll-behavior: smooth;
 }
 
@@ -150,9 +150,6 @@ body {
  
 }
 
-.right:hover {
-
-}
 
 body {
   scrollbar-color:#e2e2e2;
@@ -207,12 +204,7 @@ body {
   padding-bottom: 1.3vh;
 }
 
-.title {
-    font-size: 1.3vmax;
-    overflow: hidden;
-    width: fit-content;
-    font-weight:700;
-}
+
 
 .s-yea {
   float:right;
