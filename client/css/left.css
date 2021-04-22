@@ -14,3 +14,11 @@ color: white;
   font-size: clamp(100%, 3.3vmax, 3vmax);
     font-weight:700;
 }
+
+.left { 
+  background-color: rgb(246, 246, 246);
+  height: 100%;
+  overflow: hidden;
+  width: inherit;
+  opacity: 1;
+}
