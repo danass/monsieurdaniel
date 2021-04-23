@@ -1,14 +1,19 @@
 Template.work.onCreated(function () { 
+
     this.curindex = new ReactiveVar(0)
     this.orientation = new ReactiveVar(window.innerHeight < window.innerWidth)
     Tracker.autorun((i, e) => {
       this.worksdb = new ReactiveVar(db.find({type:"Works", 'fields.unpublished' : {$exists: false} })  )
+      let nextid = Object.values(this.worksdb.get().map(e => {return e.id}))
+      console.log(nextid.indexOf(FlowRouter.getParam('id')))
+      this.curindex.set(nextid.indexOf(FlowRouter.getParam('id')))
       let scopethis = this
       window.addEventListener('resize', function() {
         scopethis.orientation.set(window.innerHeight < window.innerWidth)
       })
     })
     this.dir = new ReactiveVar(1) 
+    
 
 })
 
@@ -23,12 +28,9 @@ entries(workid) {
   let index = Template.instance().curindex.get()
 
   nextid = nextid[index]
-  if (index == 0) {
-    return db.find({ 'fields.Work': workid }, { sort: { createdTime: Template.instance().dir.get() } });
-  }
-  else {
+
     return db.find({ 'fields.Work': nextid }, { sort: { createdTime: Template.instance().dir.get() } });
-  }
+
 
 },
 
