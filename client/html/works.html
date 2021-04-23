@@ -1,7 +1,6 @@
   <template name="works">
    
     <div id="background" class="grad-0"></div>
-    <div id="background2" class="grad-1"></div>
     <div id="background3" class="grad-2"></div>
     {{#if eq orientation true}}
     {{> menu}}
@@ -13,124 +12,12 @@
       <div class="work work-{{curindex}}">
         <div class="page-full">
         </div>
-        <div class="left"> 
-          <div class="sub-top">
-            <!-- HEADER TOP LEFT PAGE  -->
-            <div class="title">
-              {{ work.fields.Name }}
-            </div>
-            <div class="s-yea">
-              {{ work.fields.Year}}
-            </div>
-            <div class="s-typ" style="background:{{colorType work.fields.Typeofwork}};">
-              {{ work.fields.Typeofwork}}
-            </div>
-          </div>
+  
 
-          <div class="subs-left">
-            {{#if work.fields.[In collaboration with]}}
-            <div class="sub-block s-inc">
-              <div>Collaborators:</div>
-              <p>
-                {{work.fields.[In collaboration with]}}
-              </p>
-            </div>
-            {{/if}}
-
-
-            {{#if work.fields.[Special Thanks]}}
-            <div class="sub-block s-spe">
-              <div>Special Thanks:</div>
-              <p>
-                {{work.fields.[Special Thanks]}}
-              </p>
-            </div>
-            {{/if}}
-
-            {{#if work.fields.[Shows]}}
-            <div class="sub-block s-sho">
-              <div>Passed Shows:</div>
-              {{#each id_ in work.fields.[Shows] }}
-              {{#each show in id id_}}
-              <p>
-                {{show.fields.Name}}
-              </p>
-              {{/each}}
-              {{/each}}
-
-            </div>
-            {{/if}}
-
-            {{#if work.fields.[Venues]}}
-            <div class="sub-block s-ven">
-              <div>Venues:</div>
-              {{#each id_ in work.fields.[Venues] }}
-              {{#each venue in id id_}}
-
-              <p>{{venue.fields.Name}}</p>
-
-              {{/each}}
-              {{/each}}
-
-            </div>
-            {{/if}}
-
-
-
-            {{#if work.fields.Materials}}
-
-            <div class="sub-block s-mat">
-              <div>Materials:</div>
-              {{#each id_ in work.fields.Materials}}
-              {{#each material in id id_}}
-              <p>
-                {{material.fields.Name}}
-              </p>
-              {{/each}}
-              {{/each}}
-            </div>
-            {{/if}}
-
-          </div>
-
-          <div class="entries">
-            {{#if work.fields.Entries}}
-            <!-- ENTRIES  -->
-
-            <div class="sub">
-              {{#each entryid in work.fields.Entries }}
-              {{#let pcount=@index}}
-              {{#each entry in id entryid}}
-
-              <div class="sub-block">
-                {{#if eq pcount (lenindex work.fields.Entries)}}
-
-                {{strmaxwords entry.fields.Text 10}}... <a href="work/{{work.id}}" class="alt">Read more </a>
-                <div class="althidden">Scroll right side to continue reading</div>
-
-
-                {{/if}}
-              </div>
-
-              {{/each}}
-              {{/let}}
-              {{/each}}
-            </div>
-            {{/if}}
-          </div> <!-- END ENTRIES  -->
-
-
-          {{#if work.fields.Status}}
-          <div class="sub-bottom">
-            Status:
-            {{work.fields.Status}}
-          </div>
-          {{/if}}
-        </div>
-
-
+        <div class="info" title="About this project">x</div>
         <div class="right">
-
+          {{> left_template work=work}}
+          
           {{#each entry in entries workid}}
           {{#if entry.fields.Photos}}
           {{#each photo in entry.fields.Photos}}
@@ -193,4 +80,111 @@
     Dir tiliphoune dialk f mode pizaj
   </div>
 
+  </template>
+
+  <template name="left_template">
+    <div class="left"> 
+
+        <!-- HEADER TOP LEFT PAGE  -->
+        <div class="title">
+          {{ work.fields.Name }}
+        </div>
+
+        <div class="s-yea">
+          {{ work.fields.Year}}
+        </div>
+
+        <div class="s-typ" style="background:{{colorType work.fields.Typeofwork}};">
+          {{ work.fields.Typeofwork}}
+        </div>
+
+
+        {{#if work.fields.[In collaboration with]}}
+          <div class="sub">
+          <div>Collaborators:</div>
+          <p>
+            {{work.fields.[In collaboration with]}}
+          </p>
+        </div>
+        {{/if}}
+
+
+        {{#if work.fields.[Special Thanks]}}
+          <div>Special Thanks:</div>
+          <p>
+            {{work.fields.[Special Thanks]}}
+          </p>
+        {{/if}}
+
+        {{#if work.fields.[Shows]}}
+          <div>Passed Shows:</div>
+          {{#each id_ in work.fields.[Shows] }}
+          {{#each show in id id_}}
+          <p>
+            {{show.fields.Name}}
+          </p>
+          {{/each}}
+          {{/each}}
+
+        {{/if}}
+
+        {{#if work.fields.[Venues]}}
+
+          <div>Venues:</div>
+          {{#each id_ in work.fields.[Venues] }}
+          {{#each venue in id id_}}
+
+          <p>{{venue.fields.Name}}</p>
+
+          {{/each}}
+          {{/each}}
+        {{/if}}
+
+
+
+        {{#if work.fields.Materials}}
+          <div class=""></div>
+          <div>Materials:</div>
+          {{#each id_ in work.fields.Materials}}
+          {{#each material in id id_}}
+          <p>
+            {{material.fields.Name}}
+          </p>
+          {{/each}}
+          {{/each}}
+
+        {{/if}}
+
+        {{#if work.fields.Entries}}
+        <!-- ENTRIES  -->
+
+
+          {{#each entryid in work.fields.Entries }}
+          {{#let pcount=@index}}
+          {{#each entry in id entryid}}
+
+
+            {{#if eq pcount (lenindex work.fields.Entries)}}
+
+            {{strmaxwords entry.fields.Text 10}}... <a href="work/{{work.id}}" class="alt">Read more </a>
+            <div class="althidden">Scroll right side to continue reading</div>
+
+
+            {{/if}}
+
+
+          {{/each}}
+          {{/let}}
+          {{/each}}
+
+        {{/if}}
+
+
+
+      {{#if work.fields.Status}}
+        Status:
+        {{work.fields.Status}}
+
+      {{/if}}
+    </div>
   </template>

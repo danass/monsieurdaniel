@@ -66,7 +66,7 @@ animation: AnimationName 50000s cubic-bezier(0.21, 1.12, 0.96, -27270.78) infini
 .grad-0 {
   background: radial-gradient(circle at 50% 40%, #ffffff, #243966, #0e0b1c, #192228, #0a3831, #1f005c);
   background-size: 24.09% 0.099%;
-  animation: rotation 5s linear infinite;
+  animation: rotation 15s linear infinite;
 }
 
 @keyframes rotation {
@@ -132,6 +132,6 @@ animation: AnimationName 50000s cubic-bezier(0.21, 1.12, 0.96, -27270.78) infini
   background: linear-gradient( 
   275deg
   , #a2a2a2, #203a46, #2f2420, #d5d5d5, #e4e4e4, #000000, #c6c6c6, #c6c6c6, #c6c6c6, #555555, #959595, #d1d1d1, #d1d1d1, #292929, #2a3071, #252527);
-  background-size: 100.1% 0.5%;
-  animation: AnimationName 1s linear infinite;
+  /* background-size:   100.1% 0.5%; */
+  /* animation: AnimationName 1s linear infinite; */
   }

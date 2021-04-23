@@ -16,9 +16,24 @@ color: white;
 }
 
 .left { 
-  background-color: rgb(246, 246, 246);
+  /* background-color: rgb(246, 246, 246);
   height: 100%;
   overflow: hidden;
-  width: inherit;
-  opacity: 1;
+  border-radius: 1.3vw 0px 3.3vw 0.3vw;
+  width: 25vw;
+  display: none; */
+  position: absolute;
+    background: white;
+    opacity: 1;
+    margin: 0 auto;
+    padding: 50px;
+    left: 25%;
+    top: 25%;
+    width: 50%;
+    height:50vh;
+}
+.info {
+width: 96%;
+position: absolute;
+text-align: right;
 }

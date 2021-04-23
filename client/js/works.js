@@ -19,7 +19,7 @@ Template.works.onCreated(function () {
 })
 
 Template.works.helpers({
-  id(id) { return db.find({_id: id}) },
+
   getwork() {
     let ids = Object.values(Template.instance().worksdb.get().map(e => {return e.id}))
     let index = Template.instance().curindex.get()
@@ -35,9 +35,6 @@ Template.works.helpers({
   },
   orientation() {
     return Template.instance().orientation.get()
-  },
-  colorType(type) {
-    return colorType[type]
   }
 });
 
@@ -52,6 +49,7 @@ Template.works.events({
     i.curindex.set(index +1)
     if (i.curindex.get() == dblen) { i.curindex.set(0) }   
     $('.right').prop("scrollTop",0); 
+    $('.left').css('opacity', 1)
     
   },
   'click #prev' (e, i) {
@@ -60,6 +58,7 @@ Template.works.events({
     i.curindex.set(index -1)
     if (i.curindex.get() <= -1) { i.curindex.set(dblen-1) }
     $('.right').prop("scrollTop",0); 
+    $('.left').css('opacity', 1)
     
   },
   'click #up' (e, t) {
@@ -70,6 +69,12 @@ Template.works.events({
   },
   'click #home' (e, i) {
     i.curindex.set(0)
+  },
+  'mousemove .right' (e, i) {
+    $('.left').css('opacity', 0)
+  },
+  'click .info' (e, i) {
+    $('.left').css('opacity', 1)
   }
 
 })
