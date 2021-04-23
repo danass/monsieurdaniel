@@ -24,7 +24,7 @@ entries(workid) {
 
   nextid = nextid[index]
   if (index == 0) {
-    return db.find({ 'fields.Work': workid? nextid: nextid }, { sort: { createdTime: Template.instance().dir.get() } });
+    return db.find({ 'fields.Work': workid }, { sort: { createdTime: Template.instance().dir.get() } });
   }
   else {
     return db.find({ 'fields.Work': nextid }, { sort: { createdTime: Template.instance().dir.get() } });
