@@ -38,27 +38,32 @@ Template.works.helpers({
   }
 });
 
+let gogo = 100
 Template.works.events({
   'click .alt' (e, i) {
       // $('.right').css({
       //     scrollTop: $(".caption").offset().top},'slow')
   },
   'click #next' (e, i) {
+    gogo = 0
     let dblen = Template.instance().worksdb.get().count()
     let index = i.curindex.get()
     i.curindex.set(index +1)
     if (i.curindex.get() == dblen) { i.curindex.set(0) }   
     $('.right').prop("scrollTop",0); 
     $('.left').css('opacity', 1)
+ 
     
   },
   'click #prev' (e, i) {
+    gogo = 0
     let dblen = Template.instance().worksdb.get().count()
     let index = i.curindex.get()
     i.curindex.set(index -1)
     if (i.curindex.get() <= -1) { i.curindex.set(dblen-1) }
     $('.right').prop("scrollTop",0); 
     $('.left').css('opacity', 1)
+
     
   },
   'click #up' (e, t) {
@@ -75,6 +80,10 @@ Template.works.events({
   },
   'click .info' (e, i) {
     $('.left').css('opacity', 1)
+  },
+  'click .right' (e, i) {
+    $('.right').prop("scrollTop",gogo); 
+    gogo = gogo + 600
   }
 
 })
