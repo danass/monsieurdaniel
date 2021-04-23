@@ -13,8 +13,14 @@
   width: 60%;
 }
 
+.entry iframe {
+  position: relative;
+}
 .video {
-  width: calc(100% - 30%);
-  height: 66vh;
-  padding: 0% 15% 15% 15%;
+  width: 50%;
+  height: 50vh;
+  left: 25%;
+  border: none;
+  border-radius: 25px;
+  margin-top: 16vh;
 }

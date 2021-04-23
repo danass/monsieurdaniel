@@ -23,6 +23,7 @@ color: white;
   padding: 50px;
   top: 10%;
   overflow: hidden;
+  z-index: 5;
 }
 .sub {
   display: none;

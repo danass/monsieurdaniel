@@ -14,15 +14,24 @@ Template.work.onCreated(function () {
 
 
 Template.work.helpers({
+  requestedid() {
+    return FlowRouter.getParam('id')
+  },
 entries(workid) {
+
   let nextid = Object.values(Template.instance().worksdb.get().map(e => {return e.id}))
   let index = Template.instance().curindex.get()
+
   nextid = nextid[index]
-  return db.find({ 'fields.Work': workid? nextid: nextid  }, { sort: { createdTime: Template.instance().dir.get() } });
+  if (index == 0) {
+    return db.find({ 'fields.Work': workid? nextid: nextid }, { sort: { createdTime: Template.instance().dir.get() } });
+  }
+  else {
+    return db.find({ 'fields.Work': nextid }, { sort: { createdTime: Template.instance().dir.get() } });
+  }
+
 },
- requestedid() {
-   return FlowRouter.getParam('id')
- },
+
  orientation() {
    return Template.instance().orientation.get()
  },
