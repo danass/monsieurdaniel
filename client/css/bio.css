@@ -14,8 +14,17 @@
 }
 .nobio  {
   height: 0vh!important;
+  position: fixed;
+  width: calc(100vw - 50vw);
   padding: 0vw 25vw 0vw 25vw!important;
-  overflow: hidden!important;
+  z-index: 2;
+  font-size: 1.2vw;
+  word-break: break-word;
+  background: #fffffff7;
   text-align: justify;
+  transition: 1s;
+  overflow: hidden;
+  overflow-y: scroll;
+  
 }
 

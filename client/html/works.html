@@ -36,7 +36,7 @@
           {{/if}}
 
           
-          <div class="entry">
+
 
             {{> entry_template entry=entry}}
             {{#if has entry.fields.Meta 'Unique'}}
@@ -44,8 +44,9 @@
               <a href="/entry/{{entry.id}}">open</a>
             </div>
             {{else}}
+
             {{/if}}
-          </div>
+ 
 
           {{/each}}
         </div>
@@ -65,11 +66,18 @@
   <template name="entry_template">
 
     {{#if iNe entry.fields.Text}}
+
+    {{#if has entry.fields.Meta 'Video'}}
+    <div class="entry">
+      {{#video}}{{{entry.fields.Link}}}{{/video}}
+    </div>
+    {{else}}
     <div class="entry">
     <div class="entry-text">
     {{#markdown}}{{{entry.fields.Text}}}{{/markdown}}
     </div>
       </div>
+    {{/if}}
     {{/if}}
   </template>
 
@@ -85,7 +93,6 @@
   <template name="left_template">
     <div class="left"> 
 
-        <!-- HEADER TOP LEFT PAGE  -->
         <div class="title">
           {{ work.fields.Name }}
         </div>
@@ -110,13 +117,17 @@
 
 
         {{#if work.fields.[Special Thanks]}}
+        <div class="sub">
           <div>Special Thanks:</div>
           <p>
             {{work.fields.[Special Thanks]}}
           </p>
+          </div>
+
         {{/if}}
 
         {{#if work.fields.[Shows]}}
+        <div class="sub">
           <div>Passed Shows:</div>
           {{#each id_ in work.fields.[Shows] }}
           {{#each show in id id_}}
@@ -125,11 +136,11 @@
           </p>
           {{/each}}
           {{/each}}
-
+        </div>
         {{/if}}
 
         {{#if work.fields.[Venues]}}
-
+        <div class="sub">
           <div>Venues:</div>
           {{#each id_ in work.fields.[Venues] }}
           {{#each venue in id id_}}
@@ -138,12 +149,13 @@
 
           {{/each}}
           {{/each}}
+        </div>
         {{/if}}
 
 
 
         {{#if work.fields.Materials}}
-          <div class=""></div>
+        <div class="sub">
           <div>Materials:</div>
           {{#each id_ in work.fields.Materials}}
           {{#each material in id id_}}
@@ -152,15 +164,13 @@
           </p>
           {{/each}}
           {{/each}}
-
+        </div>
         {{/if}}
 
         {{#if work.fields.Entries}}
-        <!-- ENTRIES  -->
-
-
+        <div class="sub">
           {{#each entryid in work.fields.Entries }}
-          {{#let pcount=@index}}
+          {{#let pcount=0}}
           {{#each entry in id entryid}}
 
 
@@ -176,15 +186,16 @@
           {{/each}}
           {{/let}}
           {{/each}}
-
+        </div>
         {{/if}}
 
 
 
       {{#if work.fields.Status}}
+      <div class="sub">
         Status:
         {{work.fields.Status}}
-
+      </div>
       {{/if}}
     </div>
   </template>

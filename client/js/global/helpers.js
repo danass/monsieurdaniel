@@ -133,3 +133,23 @@ Blaze.Template.registerHelper("markdown", new Template('markdown', function () {
 
   return HTML.Raw(md.render(content));
 }));
+
+
+
+Blaze.Template.registerHelper("video", new Template('video', function () {
+  var view = this;
+  var content = '';
+
+
+  if (view.templateContentBlock) {
+    content = Blaze._toText(view.templateContentBlock, HTML.TEXTMODE.STRING);
+  }
+  precontent = '<iframe class="video" src=\"'
+  postcontent = '\"</iframe>'
+  video = precontent.concat(content, postcontent)
+  console.log(video)
+  return HTML.Raw(video);
+}));
+
+
+

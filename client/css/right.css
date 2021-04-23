@@ -6,3 +6,15 @@
   margin: 1vw;
   width:100%;
 }
+
+.entry-date {
+  text-align: -webkit-center;
+  padding: 15px;
+  width: 60%;
+}
+
+.video {
+  width: calc(100% - 30%);
+  height: 66vh;
+  padding: 0% 15% 15% 15%;
+}
