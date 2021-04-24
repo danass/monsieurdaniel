@@ -71,3 +71,7 @@ div#nav {
 #getbio {
   cursor: pointer;
 }
+
+.info:hover ~ .left {
+  opacity: 1;
+}

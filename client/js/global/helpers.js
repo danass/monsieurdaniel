@@ -1,6 +1,3 @@
-import {md} from './markdown.js'
-
-
 Template.registerHelper("eq", function (a, b) {
   return a == b;
 });
@@ -124,29 +121,16 @@ Template.registerHelper("strarr", function (field, compact=false) {
   else { return '' }
 });
 
-Blaze.Template.registerHelper("markdown", new Template('markdown', function () {
-  var view = this;
-  var content = '';
-  if (view.templateContentBlock) {
-    content = Blaze._toText(view.templateContentBlock, HTML.TEXTMODE.STRING);
-  }
-
-  return HTML.Raw(md.render(content));
-}));
-
-
-
 Blaze.Template.registerHelper("youtube", new Template('youtube', function () {
   var view = this;
   var content = '';
-
-
   if (view.templateContentBlock) {
     content = Blaze._toText(view.templateContentBlock, HTML.TEXTMODE.STRING);
   }
   precontent = '<iframe class="video" src=\"'
   postcontent = '\"</iframe>'
   video = precontent.concat(content, postcontent)
+  console.log(video)
   return HTML.Raw(video);
 }));
 
