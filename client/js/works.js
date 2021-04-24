@@ -11,6 +11,14 @@ Template.works.onCreated(function () {
       
       let scopethis = this
       window.addEventListener('resize', function() {
+        if (window.innerHeight < window.innerHeight) {
+          $('#background').css('display', "block")
+          $('#background3').css('display', "block")
+        }
+        else {
+          $('#background').css('display', "none")
+          $('#background3').css('display', "none")
+        }
         scopethis.orientation.set(window.innerHeight < window.innerWidth)
       })
       this.worksdb = new ReactiveVar(db.find({type:"Works", 'fields.unpublished' : {$exists: false} }, { sort: { "fields.Typeofwork": 1 } }  )  )
@@ -115,7 +123,6 @@ Template.menu.onCreated(function () {
   if(navigator.userAgent.match(/Android|webOS|iPhone|iPod|Blackberry/i) ){
     console.log("bobo", navigator.userAgent)
     $('#menu').addClass('largeMenu')
-    console.log($('#menu'))
   }
   else {
     console.log("hey", navigator.userAgent)
@@ -123,4 +130,13 @@ Template.menu.onCreated(function () {
 
   }, 2000)
 
+})
+
+
+Template.portrait.helpers({
+  clear() {
+    $('#background').css('display', "none")
+    $('#background3').css('display', "none")
+
+  }
 })
