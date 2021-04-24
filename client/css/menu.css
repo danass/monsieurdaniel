@@ -50,9 +50,9 @@ div#nav {
 
 
 .largeMenu #nav div {
-  width: 15vw!important;
-  height: 15vh;
-  font-size: 10vh;
+  width: 16vw!important;
+  height: 10vh;
+  font-size: 7vh;
 }
 
 .info:hover {

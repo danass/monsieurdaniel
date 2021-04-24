@@ -121,11 +121,11 @@ Template.menu.onCreated(function () {
   Meteor.setTimeout(function go() {
 
   if(navigator.userAgent.match(/Android|webOS|iPhone|iPod|Blackberry/i) ){
-    console.log("bobo", navigator.userAgent)
     $('#menu').addClass('largeMenu')
+    $('#works').css('height', '86.5vh')
   }
   else {
-    console.log("hey", navigator.userAgent)
+
   }
 
   }, 2000)
