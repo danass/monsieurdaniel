@@ -89,6 +89,23 @@ Template.works.events({
 })
 
 
+Template.menu.onCreated(function () {
+  if(navigator.userAgent.match(/Android|webOS|iPhone|iPod|Blackberry/i) ){
+  
+
+$('#menu #nav div').css({
+    "height": "16vh",
+    "width": "15vw!important",
+    "font-size": "5vw"
+  })
+
+  }
+  else {
+    console.log("hey", navigator.userAgent)
+   
+  }
+})
+
 Template.menu.events({
   'click #bio' (e, i) {
     $('#bio').addClass('nobio')
