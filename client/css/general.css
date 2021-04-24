@@ -1,8 +1,5 @@
 .portraitwarning {
-  font-size: 10vw;
-  text-align: center;
-  width: 82%;
-  height: 60vh;
   -webkit-writing-mode: vertical-rl;
-  padding-top: 20vh;
+  margin: 190px auto;
+  font-size: 8vw;
 }
