@@ -16,10 +16,13 @@ color: white;
 }
 
 .left { 
-    padding: 20px;
-    overflow: hidden;
-    position: fixed;
-    width: 29vw;
+  padding: 80px;
+  overflow: hidden;
+  position: fixed;
+  width: 29vw;
+  background: white;
+  border-radius: 13.3vw 0vw;
+  text-align: center;
 }
 .sub {
   display: none;
