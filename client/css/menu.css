@@ -67,3 +67,7 @@ div#nav {
   top: 8vh;
   z-index: 1;
 }
+
+#getbio {
+  cursor: pointer;
+}

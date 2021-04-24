@@ -34,7 +34,17 @@ Template.works.helpers({
     return db.findOne({_id: ids[index]})
   },
   entries(workid) {
+    
+    let meta = db.find({id: workid}).map(o => { return o.fields.Meta})
+
+    if (meta[0]?.includes('Reverse') == true) {
+      Template.instance().dir.set(-1)
+     return db.find({ 'fields.Work': workid }, { sort: { createdTime: Template.instance().dir.get() } });
+    }
+    else {
+      Template.instance().dir.set(1)
     return db.find({ 'fields.Work': workid }, { sort: { createdTime: Template.instance().dir.get() } });
+    }
   },
   workid() {
     let ids = Object.values(Template.instance().worksdb.get().map(e => {return e.id}))
@@ -60,8 +70,6 @@ Template.works.events({
     if (i.curindex.get() == dblen) { i.curindex.set(0) }   
     $('.right').prop("scrollTop",0); 
     $('.left').css('opacity', 1)
- 
-    
   },
   'click #prev' (e, i) {
     gogo = 0
@@ -71,8 +79,6 @@ Template.works.events({
     if (i.curindex.get() <= -1) { i.curindex.set(dblen-1) }
     $('.right').prop("scrollTop",0); 
     $('.left').css('opacity', 1)
-
-    
   },
   'click #up' (e, t) {
     t.dir.set(-1)
