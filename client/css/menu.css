@@ -47,3 +47,10 @@ div#nav {
 #nav div:hover {
   font-weight: bold;
 }
+
+
+.largeMenu #nav div {
+  width: 15vw!important;
+  height: 15vh;
+  font-size: 10vh;
+}

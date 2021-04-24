@@ -1,5 +1,4 @@
 Template.works.onCreated(function () { 
-  
   this.orientation = new ReactiveVar(window.innerHeight < window.innerWidth)
   this.gradient = new ReactiveVar(0)
   $(document).on('keyup', (e) => {
@@ -9,6 +8,7 @@ Template.works.onCreated(function () {
   });
     this.curindex = new ReactiveVar(0)
     Tracker.autorun(() => {
+      
       let scopethis = this
       window.addEventListener('resize', function() {
         scopethis.orientation.set(window.innerHeight < window.innerWidth)
@@ -89,22 +89,6 @@ Template.works.events({
 })
 
 
-Template.menu.onCreated(function () {
-  if(navigator.userAgent.match(/Android|webOS|iPhone|iPod|Blackberry/i) ){
-  
-
-$('#menu #nav div').css({
-    "height": "16vh",
-    "width": "15vw!important",
-    "font-size": "5vw"
-  })
-
-  }
-  else {
-    console.log("hey", navigator.userAgent)
-   
-  }
-})
 
 Template.menu.events({
   'click #bio' (e, i) {
@@ -112,13 +96,31 @@ Template.menu.events({
   },
   'click #getbio' (e, i) {
     $('#bio').removeClass('nobio')
-  } 
+  },
+
 })
 
 Template.menu.helpers({
   getbio() {
     return db.find({_id: "recdZe6i8XsaKbToQ"})
   },
-  id(id) { return db.find({_id: id}) }
+  id(id) { return db.find({_id: id}) },
+  
 })
 
+
+Template.menu.onCreated(function () {
+  Meteor.setTimeout(function go() {
+
+  if(navigator.userAgent.match(/Android|webOS|iPhone|iPod|Blackberry/i) ){
+    console.log("bobo", navigator.userAgent)
+    $('#menu').addClass('largeMenu')
+    console.log($('#menu'))
+  }
+  else {
+    console.log("hey", navigator.userAgent)
+  }
+
+  }, 2000)
+
+})

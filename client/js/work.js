@@ -30,8 +30,6 @@ entries(workid) {
   nextid = nextid[index]
 
     return db.find({ 'fields.Work': nextid }, { sort: { createdTime: Template.instance().dir.get() } });
-
-
 },
 
  orientation() {

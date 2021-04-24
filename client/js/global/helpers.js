@@ -136,7 +136,7 @@ Blaze.Template.registerHelper("markdown", new Template('markdown', function () {
 
 
 
-Blaze.Template.registerHelper("video", new Template('video', function () {
+Blaze.Template.registerHelper("youtube", new Template('youtube', function () {
   var view = this;
   var content = '';
 
@@ -147,7 +147,6 @@ Blaze.Template.registerHelper("video", new Template('video', function () {
   precontent = '<iframe class="video" src=\"'
   postcontent = '\"</iframe>'
   video = precontent.concat(content, postcontent)
-  console.log(video)
   return HTML.Raw(video);
 }));
 
