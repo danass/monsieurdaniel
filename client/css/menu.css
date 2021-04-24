@@ -54,3 +54,16 @@ div#nav {
   height: 15vh;
   font-size: 10vh;
 }
+
+.info:hover {
+  font-weight: 700;
+  cursor: help;
+}
+
+.info {
+  width: 96%;
+  position: absolute;
+  text-align: right;
+  top: 8vh;
+  z-index: 1;
+}

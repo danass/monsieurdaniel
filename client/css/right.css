@@ -24,3 +24,10 @@
   border-radius: 25px;
   margin-top: 16vh;
 }
+
+.caption {
+  text-align-last: center;
+  font-family: imperial;
+  font-size: x-small;
+  padding: 15px;
+}

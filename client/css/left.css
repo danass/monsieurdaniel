@@ -16,20 +16,11 @@ color: white;
 }
 
 .left { 
-  position: absolute;
-  background: white;
-  opacity: 1;
-  margin: 0 auto;
-  padding: 50px;
-  top: 10%;
-  overflow: hidden;
-  z-index: 5;
+    padding: 20px;
+    overflow: hidden;
+    position: fixed;
+    width: 29vw;
 }
 .sub {
   display: none;
-}
-.info {
-width: 96%;
-position: absolute;
-text-align: right;
 }
