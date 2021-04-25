@@ -1,7 +1,11 @@
 
 
 var md = require('markdown-it')('commonmark', {
-  breaks: true
+  breaks: true,
+  linkify: true,
+  html: true,
+  typographer: true
+
 })
 
 var markdownItAttrs = require('markdown-it-attrs');

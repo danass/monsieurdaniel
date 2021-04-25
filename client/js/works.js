@@ -25,8 +25,6 @@ Template.works.onCreated(function () {
           let index = this.curindex.get()
           this.curindex.set(index +1)
           if (this.curindex.get() == dblen) { this.curindex.set(0) }   
-          $('.right').prop("scrollTop",0); 
-          $('.left').css('opacity', 1)
         }
         if (e.key == 'ArrowLeft') { 
           gogo = 0
@@ -34,8 +32,7 @@ Template.works.onCreated(function () {
           let index = this.curindex.get()
           this.curindex.set(index -1)
           if (this.curindex.get() == dblen) { this.curindex.set(0) }   
-          $('.right').prop("scrollTop",0); 
-          $('.left').css('opacity', 1)
+
 
 
         }
@@ -53,7 +50,13 @@ Template.works.helpers({
     return db.findOne({_id: ids[index]})
   },
   entries(workid) {
-    
+    Tracker.autorun(() => {
+      Meteor.setTimeout(() => {
+        $('.right').prop("scrollTop", $('.bugger')[0].clientHeight ); 
+        $('.left').css('opacity', 1)
+
+      }, 1)
+    })
     let meta = db.find({id: workid}).map(o => { return o.fields.Meta})
 
     if (meta[0]?.includes('Reverse') == true) {
@@ -87,8 +90,8 @@ Template.works.events({
     let index = i.curindex.get()
     i.curindex.set(index +1)
     if (i.curindex.get() == dblen) { i.curindex.set(0) }   
-    $('.right').prop("scrollTop",0); 
-    $('.left').css('opacity', 1)
+    // $('.right').prop("scrollTop", $('.toppy')[0].clientHeight ); 
+    // $('.left').css('opacity', 1)
   },
   'click #prev' (e, i) {
     gogo = 0
@@ -96,8 +99,8 @@ Template.works.events({
     let index = i.curindex.get()
     i.curindex.set(index -1)
     if (i.curindex.get() <= -1) { i.curindex.set(dblen-1) }
-    $('.right').prop("scrollTop",0); 
-    $('.left').css('opacity', 1)
+    // $('.right').prop("scrollTop", $('.toppy')[0].clientHeight ); 
+    // $('.left').css('opacity', 1)
   },
   'click #up' (e, t) {
     t.dir.set(-1)
@@ -108,11 +111,9 @@ Template.works.events({
   'click #home' (e, i) {
     i.curindex.set(0)
   },
-  'mousemove .right' (e, i) {
-    $('.left').css('opacity', 0)
-  },
   'click .info' (e, i) {
-    $('.left').css('opacity', 1)
+    
+    $('.right').prop("scrollTop", 0); 
   },
   'click .right' (e, i) {
     $('.right').prop("scrollTop",gogo); 
@@ -121,6 +122,12 @@ Template.works.events({
 
 })
 
+
+Template.works.onRendered(function() {
+  $('.right').prop("scrollTop", $('.bugger')[0].clientHeight ); 
+  $('.left').css('opacity', 1)
+  console.log("allo")
+})
 
 
 Template.menu.events({
@@ -147,7 +154,7 @@ Template.menu.onCreated(function () {
 
   if(navigator.userAgent.match(/Android|webOS|iPhone|iPod|Blackberry/i) ){
     $('#menu').addClass('largeMenu')
-    $('#works').css('height', '86.5vh')
+    $('#works').css('height', '81.5vh')
   }
   else {
 
