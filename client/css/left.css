@@ -25,40 +25,52 @@ color: white;
 }
 
 .toppy .sub {
-  padding: 5px;
+
   background-clip: content-box;
-  background-color: #f1f1f1;
-  border-radius: 20px;
-  width: min-content;
-  height: min-content;
+  background-color: #f8f8f8;
+  border-radius: 0px;
+  width: 12vw;
   font-size: x-large;
+  text-align: -webkit-center;
+  border-width: 9px 25px 0px 25px;
+  align-self: center;
 }
 .toppy .sub div {
   font-weight: 700;
-  padding: 7px;
-  background: #f483ef;
-  border-radius: 0px;
+  padding: 3px;
+  background: #000000;
+  border-radius: 25px;
+  border: solid #f8f8f8;
+  border-width: 0px 15px 0px 15px;
+  margin: 41px 0px -3px 5px;
+  min-width: 69%;
+  max-width: min-content;
+  color: #3df6c8;
 }
 
 .toppy {
-  padding: 40px;
+  background-color: #f8f8f8;
+  padding: 20px;
   display: flex;
   text-align: center;
-  height: 41%;
   width: 25vw;
   flex-direction: row;
+  align-content: stretch;
+  justify-content: center;
+  align-items: stretch;
   flex-wrap: wrap;
-  align-content: space-between;
-  justify-content: space-between;
-  align-items: flex-start;
 }
 
 .toppy .sub p {
-  padding: 8px;
-  border-radius: 13px;
-  background: #e2e2e2;
-  margin: 8px;
-  font-size: small;
+  padding: 9px;
+  border-radius: 33px;
+  background: #120000;
+  border: solid #ff0048;
+  font-size: x-small;
+  border-width: 0px 4px 0px 4px;
+  margin: -1px 0px 0px 0px;
+  display: table-cell;
+  color: aquamarine;
 }
 
 .bugger {
