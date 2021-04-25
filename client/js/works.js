@@ -1,11 +1,6 @@
 Template.works.onCreated(function () { 
   this.orientation = new ReactiveVar(window.innerHeight < window.innerWidth)
   this.gradient = new ReactiveVar(0)
-  $(document).on('keyup', (e) => {
-    if (e.key == 'ArrowRight') { }
-    if (e.key == 'ArrowLeft') { }
-    // if (e.key == 'Escape') {  }
-  });
     this.curindex = new ReactiveVar(0)
     Tracker.autorun(() => {
       
@@ -22,6 +17,30 @@ Template.works.onCreated(function () {
         scopethis.orientation.set(window.innerHeight < window.innerWidth)
       })
       this.worksdb = new ReactiveVar(db.find({type:"Works", 'fields.unpublished' : {$exists: false} }, { sort: { "fields.Typeofwork": 1 } }  )  )
+   
+      $(document).on('keyup', (e) => {
+        if (e.key == 'ArrowRight') { 
+          gogo = 0
+          let dblen = this.worksdb.get().count()
+          let index = this.curindex.get()
+          this.curindex.set(index +1)
+          if (this.curindex.get() == dblen) { this.curindex.set(0) }   
+          $('.right').prop("scrollTop",0); 
+          $('.left').css('opacity', 1)
+        }
+        if (e.key == 'ArrowLeft') { 
+          gogo = 0
+          let dblen = this.worksdb.get().count()
+          let index = this.curindex.get()
+          this.curindex.set(index -1)
+          if (this.curindex.get() == dblen) { this.curindex.set(0) }   
+          $('.right').prop("scrollTop",0); 
+          $('.left').css('opacity', 1)
+
+
+        }
+        // if (e.key == 'Escape') {  }
+      });
     })
     this.dir = new ReactiveVar(1)
 })
