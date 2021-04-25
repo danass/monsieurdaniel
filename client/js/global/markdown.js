@@ -1,10 +1,15 @@
 
 
-var md = require('markdown-it')();
+var md = require('markdown-it')('commonmark', {
+  breaks: true
+})
+
 var markdownItAttrs = require('markdown-it-attrs');
+
 
 md.use(markdownItAttrs);
 md.disable("code")
+md.enable(["newline"])
 
 Blaze.Template.registerHelper("markdown", new Template('markdown', function () {
   var view = this;
@@ -12,7 +17,8 @@ Blaze.Template.registerHelper("markdown", new Template('markdown', function () {
   if (view.templateContentBlock) {
     content = Blaze._toText(view.templateContentBlock, HTML.TEXTMODE.STRING);
   }
-  return HTML.Raw(md.render(content));
+
+  return HTML.Raw(md.render(content  ));
 }));
 
 

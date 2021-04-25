@@ -51,11 +51,6 @@
   white-space: pre-line;
 }
 
-br {
-  content: "";
-  margin-bottom: 0.7em!important;
-  display: block;
-}
 
 .sp.large {
   text-align: center;
