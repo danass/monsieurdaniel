@@ -17,7 +17,7 @@ Template.works.onCreated(function () {
         scopethis.orientation.set(window.innerHeight < window.innerWidth)
       })
       this.worksdb = new ReactiveVar(db.find({type:"Works", 'fields.unpublished' : {$exists: false} }, { sort: { "fields.Typeofwork": 1 } }  )  )
-   
+      gogo = 0
       $(document).on('keyup', (e) => {
         if (e.key == 'ArrowRight') { 
           gogo = 0
@@ -41,6 +41,7 @@ Template.works.onCreated(function () {
     })
     this.dir = new ReactiveVar(1)
 })
+
 
 Template.works.helpers({
 
@@ -78,12 +79,7 @@ Template.works.helpers({
   }
 });
 
-let gogo = 100
 Template.works.events({
-  'click .alt' (e, i) {
-      // $('.right').css({
-      //     scrollTop: $(".caption").offset().top},'slow')
-  },
   'click #next' (e, i) {
     gogo = 0
     let dblen = Template.instance().worksdb.get().count()
@@ -112,12 +108,11 @@ Template.works.events({
     i.curindex.set(0)
   },
   'click .info' (e, i) {
-    
     $('.right').prop("scrollTop", 0); 
   },
   'click .right' (e, i) {
     $('.right').prop("scrollTop",gogo); 
-    gogo = gogo + 600
+    gogo = gogo + $('.right')[0].clientHeight
   }
 
 })
@@ -126,7 +121,6 @@ Template.works.events({
 Template.works.onRendered(function() {
   $('.right').prop("scrollTop", $('.bugger')[0].clientHeight ); 
   $('.left').css('opacity', 1)
-  console.log("allo")
 })
 
 

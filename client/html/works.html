@@ -97,12 +97,8 @@
           {{ work.fields.Name }}
         </div>
 
-        <div class="sub s-yea">
-          {{ work.fields.Year}}
-        </div>
-
-        <div class="s-typ" style="background: {{colorType work.fields.Typeofwork}}">
-          {{ work.fields.Typeofwork}}
+        <div class="s-typ" style="background: {{colorType work.fields.Field}}">
+          {{ work.fields.Field}}
         </div>
 
     </div>
@@ -116,7 +112,7 @@
     <div class="toppy">
     {{#if work.fields.[In collaboration with]}}
     <div class="sub">
-    <div>Collaborators:</div>
+    <div>Collaborators</div>
     <p>
       {{work.fields.[In collaboration with]}}
     </p>
@@ -126,7 +122,7 @@
 
   {{#if work.fields.[Special Thanks]}}
   <div class="sub">
-    <div>Special Thanks:</div>
+    <div>Special Thanks</div>
     <p>
       {{work.fields.[Special Thanks]}}
     </p>
@@ -136,7 +132,7 @@
 
   {{#if work.fields.[Shows]}}
   <div class="sub">
-    <div>Passed Shows:</div>
+    <div>Passed Shows</div>
     {{#each id_ in work.fields.[Shows] }}
     {{#each show in id id_}}
     <p>
@@ -149,7 +145,7 @@
 
   {{#if work.fields.[Venues]}}
   <div class="sub">
-    <div>Venues:</div>
+    <div>Venues</div>
     {{#each id_ in work.fields.[Venues] }}
     {{#each venue in id id_}}
 
@@ -164,7 +160,7 @@
 
   {{#if work.fields.Materials}}
   <div class="sub">
-    <div>Materials:</div>
+    <div>Materials</div>
     {{#each id_ in work.fields.Materials}}
     {{#each material in id id_}}
     <p>
@@ -175,6 +171,12 @@
   </div>
   {{/if}}
 
+  {{#if work.fields.Year}}
+  <div class="sub">
+    <div>Year</div>
+    <p>{{work.fields.Year}}</p>
+  </div>
+  {{/if}}
 
 
 {{#if work.fields.Status}}

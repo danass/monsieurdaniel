@@ -1,8 +1,11 @@
 .s-typ {
-float:left;
-padding:0.5vh;
-border-radius: 5px;
-color: white;
+  font-weight: 600;
+  float: left;
+  padding: 0.5vh;
+  color: black;
+  width: 100%;
+  text-align: center;
+  border-radius: 25px 0px 25px 0px;
 }
 
 .subs-left {
@@ -16,12 +19,13 @@ color: white;
 }
 
 .left { 
-  padding: 80px;
+  padding: 82px 230px;
   overflow: hidden;
-  width: 29vw;
+  width: fit-content;
   background: white;
-  border-radius: 13.3vw 0vw;
-  text-align: center;
+  border-radius: 16.3vw 0vw;
+  text-align: right;
+  max-width: 30%;
 }
 
 .toppy .sub {
