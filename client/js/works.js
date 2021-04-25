@@ -154,7 +154,7 @@ Template.menu.onCreated(function () {
 
   if(navigator.userAgent.match(/Android|webOS|iPhone|iPod|Blackberry/i) ){
     $('#menu').addClass('largeMenu')
-    $('#works').css('height', '81.5vh')
+    $('#works').css('height', '77.5vh')
   }
   else {
 
