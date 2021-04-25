@@ -41,11 +41,16 @@ color: white;
 }
 
 .toppy {
-  width: 50vw;
   padding: 40px;
-  table-layout: unset;
   display: flex;
   text-align: center;
+  height: 41%;
+  width: 25vw;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-between;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .toppy .sub p {
