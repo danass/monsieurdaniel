@@ -96,7 +96,6 @@
   padding: 9vw 7vw 20vw 6vw;
   font-size: 1.28rem;
   line-height: 5.875rem;
-  white-space: pre-line;
   background: white;
   text-align: justify;
   border-radius: 55vw 0vw 110vw 25vw;
@@ -113,4 +112,8 @@
 .status div {
   background: #434343!important;
   color: #C7C7C9!important;
+}
+
+.left_intro p {
+  white-space: pre-line;
 }
