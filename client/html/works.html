@@ -151,7 +151,7 @@
 
         {{#if work.fields.[Venues]}}
         <div class="sub">
-          <div>Venues</div>
+          <div>Place</div>
           {{#each id_ in work.fields.[Venues] }}
           {{#each venue in id id_}}
 
@@ -166,7 +166,7 @@
 
         {{#if work.fields.Materials}}
         <div class="sub">
-          <div>Materials</div>
+          <div>Matter</div>
           {{#each id_ in work.fields.Materials}}
           {{#each material in id id_}}
           <p>
@@ -186,9 +186,9 @@
 
 
         {{#if work.fields.Status}}
-        <div class="sub">
-          <div>Status:</div>
-          <p>{{work.fields.Status}}</p>
+        <div class="sub status">
+          <div>{{work.fields.Status}}</div>
+           <p></p>
         </div>
         {{/if}}
       </div>

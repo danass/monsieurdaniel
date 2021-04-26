@@ -103,3 +103,14 @@
   overflow-y: scroll;
   height: 35vh;
 }
+
+.status p {
+  /* display: none!important; */
+  height: 12px!important;
+  opacity: 0;
+}
+
+.status div {
+  background: #434343!important;
+  color: #C7C7C9!important;
+}
