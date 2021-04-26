@@ -1,5 +1,5 @@
   <template name="works">
-   
+
     <div id="background" class="grad-0"></div>
     <div id="background3" class="grad-2"></div>
     {{#if eq orientation true}}
@@ -12,40 +12,24 @@
       <div class="work work-{{curindex}}">
         <div class="page-full">
         </div>
-  
+
 
         <div class="info" title="About this project">about project</div>
         <div class="right">
-          
+
           {{> toppy work=work}}
-          
+
           {{#each entry in entries workid}}
-          {{#if entry.fields.Photos}}
-          {{#each photo in entry.fields.Photos}}
-          <div class="img-fullpage page page-{{@index}}" style="background-image: url('{{photo.url}}')"></div>
-          {{#if has entry.fields.Meta 'No-caption'}}
-          {{else}}
-          <div class="caption">{{photo.filename}}</div>
-          {{/if}}
-          {{/each}}
-          {{/if}}
-          
-          {{#if has entry.fields.Meta 'Date'}}
-          <div class="entry-date">
-            {{date entry.fields.date_created}}
+            
+          {{> entry_template entry=entry}}
+          {{#if has entry.fields.Meta 'Unique'}}
+          <div class="unique">
+            <a href="/entry/{{entry.id}}">open</a>
           </div>
+          {{else}}
+
           {{/if}}
 
-  
-            {{> entry_template entry=entry}}
-            {{#if has entry.fields.Meta 'Unique'}}
-            <div class="unique">
-              <a href="/entry/{{entry.id}}">open</a>
-            </div>
-            {{else}}
-
-            {{/if}}
- 
 
           {{/each}}
         </div>
@@ -55,7 +39,7 @@
 
 
     </div>
-    
+
     {{else}}
     {{orientation}}
     {{> portrait}}
@@ -63,6 +47,26 @@
   </template>
 
   <template name="entry_template">
+    
+    {{#if entry.fields.Photos}}
+
+      {{#each photo in entry.fields.Photos}}
+      <div class="img-fullpage page page-{{@index}}" style="background-image: url('{{photo.url}}')"></div>
+      
+      {{#if has entry.fields.Meta 'No-caption'}}
+      {{else}}
+      <div class="caption">{{photo.filename}}</div>
+      {{/if}}
+      {{/each}}
+
+    {{/if}}
+
+    {{#if has entry.fields.Meta 'Date'}}
+    <div class="entry-date">
+      {{date entry.fields.date_created}}
+    </div>
+    {{/if}}
+
 
     {{#if iNe entry.fields.Text}}
 
@@ -72,34 +76,35 @@
     </div>
     {{/if}}
     <div class="entry">
-    <div class="entry-text">
-    {{#markdown}}{{{entry.fields.Text}}}{{/markdown}}
-    </div>
+      <div class="entry-text">
+        {{#markdown}}{{{entry.fields.Text}}}{{/markdown}}
       </div>
-    
+    </div>
+
     {{/if}}
+  
   </template>
 
   <template name="portrait">
     {{clear}}
-        <div class="portraitwarning">
-    Turn you phone in landscape mode.
-    Mettez votre téléphone en position paysage.
-    Dir tiliphoune dialk f mode pizaj
-  </div>
+    <div class="portraitwarning">
+      Turn you phone in landscape mode.
+      Mettez votre téléphone en position paysage.
+      Dir tiliphoune dialk f mode pizaj
+    </div>
 
   </template>
 
   <template name="left_template">
-    <div class="left"> 
+    <div class="left">
 
-        <div class="title">
-          {{ work.fields.Name }}
-        </div>
+      <div class="title">
+        {{ work.fields.Name }}
+      </div>
 
-        <div class="s-typ" style="background: {{colorType work.fields.Field}}">
-          {{ work.fields.Field}}
-        </div>
+      <div class="s-typ" style="background: {{colorType work.fields.Field}}">
+        {{ work.fields.Field}}
+      </div>
 
     </div>
   </template>
@@ -107,84 +112,99 @@
 
 
   <template name="toppy">
-    <div class="bugger"> 
-    {{> left_template work=work}}
-    <div class="toppy">
-    {{#if work.fields.[In collaboration with]}}
-    <div class="sub">
-    <div>Collaborators</div>
-    <p>
-      {{work.fields.[In collaboration with]}}
-    </p>
-  </div>
-  {{/if}}
+    <div class="bugger">
+      <div class="couscous">
+      {{> left_template work=work}}
+      <div class="toppy">
+        {{#if work.fields.[In collaboration with]}}
+        <div class="sub">
+          <div>Collaborators</div>
+          <p>
+            {{work.fields.[In collaboration with]}}
+          </p>
+        </div>
+        {{/if}}
 
 
-  {{#if work.fields.[Special Thanks]}}
-  <div class="sub">
-    <div>Special Thanks</div>
-    <p>
-      {{work.fields.[Special Thanks]}}
-    </p>
+        {{#if work.fields.[Special Thanks]}}
+        <div class="sub">
+          <div>Special Thanks</div>
+          <p>
+            {{work.fields.[Special Thanks]}}
+          </p>
+        </div>
+
+        {{/if}}
+
+        {{#if work.fields.[Shows]}}
+        <div class="sub">
+          <div>Passed Shows</div>
+          {{#each id_ in work.fields.[Shows] }}
+          {{#each show in id id_}}
+          <p>
+            {{show.fields.Name}}
+          </p>
+          {{/each}}
+          {{/each}}
+        </div>
+        {{/if}}
+
+        {{#if work.fields.[Venues]}}
+        <div class="sub">
+          <div>Venues</div>
+          {{#each id_ in work.fields.[Venues] }}
+          {{#each venue in id id_}}
+
+          <p>{{venue.fields.Name}}</p>
+
+          {{/each}}
+          {{/each}}
+        </div>
+        {{/if}}
+
+
+
+        {{#if work.fields.Materials}}
+        <div class="sub">
+          <div>Materials</div>
+          {{#each id_ in work.fields.Materials}}
+          {{#each material in id id_}}
+          <p>
+            {{material.fields.Name}}
+          </p>
+          {{/each}}
+          {{/each}}
+        </div>
+        {{/if}}
+
+        {{#if work.fields.Year}}
+        <div class="sub">
+          <div>Year</div>
+          <p>{{work.fields.Year}}</p>
+        </div>
+        {{/if}}
+
+
+        {{#if work.fields.Status}}
+        <div class="sub">
+          <div>Status:</div>
+          <p>{{work.fields.Status}}</p>
+        </div>
+        {{/if}}
+      </div>
     </div>
+    {{> left_intro work=work}}
+    </div>
+    
+  </template>
 
-  {{/if}}
+  <template name="left_intro">
+    {{#if work.fields.Intro}}
+    <div class="left_intro">
+      {{#markdown}}
+      {{work.fields.Intro}}
+      {{/markdown}}
+    </div>
+    {{/if}}
 
-  {{#if work.fields.[Shows]}}
-  <div class="sub">
-    <div>Passed Shows</div>
-    {{#each id_ in work.fields.[Shows] }}
-    {{#each show in id id_}}
-    <p>
-      {{show.fields.Name}}
-    </p>
-    {{/each}}
-    {{/each}}
-  </div>
-  {{/if}}
-
-  {{#if work.fields.[Venues]}}
-  <div class="sub">
-    <div>Venues</div>
-    {{#each id_ in work.fields.[Venues] }}
-    {{#each venue in id id_}}
-
-    <p>{{venue.fields.Name}}</p>
-
-    {{/each}}
-    {{/each}}
-  </div>
-  {{/if}}
-
-
-
-  {{#if work.fields.Materials}}
-  <div class="sub">
-    <div>Materials</div>
-    {{#each id_ in work.fields.Materials}}
-    {{#each material in id id_}}
-    <p>
-      {{material.fields.Name}}
-    </p>
-    {{/each}}
-    {{/each}}
-  </div>
-  {{/if}}
-
-  {{#if work.fields.Year}}
-  <div class="sub">
-    <div>Year</div>
-    <p>{{work.fields.Year}}</p>
-  </div>
-  {{/if}}
-
-
-{{#if work.fields.Status}}
-<div class="sub">
-  <div>Status:</div>
-  <p>{{work.fields.Status}}</p>
-</div>
-{{/if}}
-</div>
-</div>  
   </template>

@@ -19,20 +19,20 @@
 }
 
 .left { 
-  padding: 82px 230px;
+  padding: 85px 250px 85px 110px;
   overflow: hidden;
-  width: fit-content;
   background: white;
   border-radius: 16.3vw 0vw;
   text-align: right;
-  max-width: 30%;
+  min-width: 67%!important;
+  z-index: 500;
 }
 
 .toppy .sub {
 
   background-clip: content-box;
   background-color: #f8f8f8;
-  border-radius: 0px;
+  border-radius: 0px; 
   width: 12vw;
   font-size: x-large;
   text-align: -webkit-center;
@@ -57,12 +57,13 @@
   padding: 20px;
   display: flex;
   text-align: center;
-  width: 25vw;
+  width: 40vw;
   flex-direction: row;
-  align-content: stretch;
-  justify-content: center;
+  align-content: flex-start;
+  justify-content: space-around;
   align-items: stretch;
   flex-wrap: wrap;
+  height: 62%;
 }
 
 .toppy .sub p {
@@ -79,4 +80,24 @@
 
 .bugger {
   height: 81vh;
+  display: inline-flex;
+}
+
+.couscous {
+  width: 50%;
+}
+
+.left_intro {
+  width: calc(47vw - 6vw);
+  margin: 0 auto;
+  padding: 9vw 7vw 20vw 6vw;
+  font-size: 1.28rem;
+  line-height: 5.875rem;
+  white-space: pre-line;
+  background: white;
+  text-align: justify;
+  border-radius: 55vw 0vw 110vw 25vw;
+  overflow-y: scroll;
+  height: 35vh;
+  z-index: 2;
 }
