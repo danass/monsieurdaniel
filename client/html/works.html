@@ -1,7 +1,5 @@
   <template name="works">
-
-    <div id="background" class="grad-0"></div>
-    <div id="background3" class="grad-2"></div>
+    {{> gradients}}
     {{#if eq orientation true}}
     {{> menu}}
 
@@ -44,6 +42,9 @@
     {{orientation}}
     {{> portrait}}
     {{/if}}
+
+    {{> overview }}
+    
   </template>
 
   <template name="entry_template">
@@ -83,6 +84,9 @@
 
     {{/if}}
   
+
+
+
   </template>
 
   <template name="portrait">
@@ -207,4 +211,26 @@
     </div>
     {{/if}}
 
+  </template>
+
+  <template name="overview">
+    <div class="overview">
+
+      {{#each work in works}}
+      {{#if eq work.fields.Type 'Art'}}
+      <div class="art_type">
+        <div class="work_">
+          {{work.fields.Name}}
+        </div>
+      </div>
+      {{/if}}
+      {{/each}}
+
+    </div>
+    
+  </template>
+
+  <template name="gradients">
+    <div id="background" class="grad-0"></div>
+    <div id="background3" class="grad-2"></div>
   </template>

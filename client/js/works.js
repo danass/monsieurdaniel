@@ -76,7 +76,11 @@ Template.works.helpers({
   },
   orientation() {
     return Template.instance().orientation.get()
-  }
+  },
+  works() {
+    //  let works = db.find({type:"Works", 'fields.unpublished' : {$exists: false} }, { sort: { "fields.Field": 1 } }  )
+     return  db.find({type:"Works", 'fields.unpublished' : {$exists: false} }, { sort: { "fields.Year": 1 } }  )
+    }
 });
 
 Template.works.events({
