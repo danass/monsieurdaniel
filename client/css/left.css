@@ -24,7 +24,7 @@
   background: white;
   border-radius: 16.3vw 0vw;
   text-align: right;
-  min-width: 67%!important;
+  min-width: 25vw;
   z-index: 500;
 }
 
@@ -63,7 +63,9 @@
   justify-content: space-around;
   align-items: stretch;
   flex-wrap: wrap;
-  height: 62%;
+  height: min-content;
+  max-height: 64%;
+  min-height: fit-content;
 }
 
 .toppy .sub p {
@@ -81,6 +83,7 @@
 .bugger {
   height: 81vh;
   display: inline-flex;
+  max-width: 100%;
 }
 
 .couscous {
@@ -99,5 +102,4 @@
   border-radius: 55vw 0vw 110vw 25vw;
   overflow-y: scroll;
   height: 35vh;
-  z-index: 2;
 }
