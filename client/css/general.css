@@ -1,5 +1,6 @@
 .portraitwarning {
   -webkit-writing-mode: vertical-rl;
+  writing-mode: vertical-rl;
   margin: 190px auto;
   font-size: 8vw;
 }
