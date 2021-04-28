@@ -110,7 +110,7 @@
         {{ work.fields.Name }}
       </div>
 
-      <div class="s-typ" style="background: {{colorType work.fields.Field}}">
+      <div class="s-typ" style="background: '{{colorType work.fields.Field}}'">
         {{ work.fields.Field}}
       </div>
 
@@ -241,7 +241,9 @@
     <div class="thumbnail_container">
       
     <div class="thumbnail">
+      <div class="link">
       <a class="thumbnail-href" href='/work/{{work.id}}'></a>
+    </div>
       <div class="thumbnail-title">
         <p>
         {{work.fields.Name}}
@@ -261,7 +263,9 @@
         {{else}}
         <div class="thubmnail-text">
           <p>
-          {{strmaxwords entry.fields.Text 50}}
+
+          {{strmaxwords entry.fields.Text 100}}
+
           </p>
         </div>
       {{/if}}
