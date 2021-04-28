@@ -1,17 +1,26 @@
 .overview {
   background: rgb(255 255 255);
-  width: 100%;
   height: 100%;
   z-index: 42;
   display: flex;
-  flex-wrap: wrap;
   align-content: flex-start;
+  padding: var(--main-padding) 0% 0% var(--main-padding);
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .thumbnail {
-  width: calc(25vw - 4px);
+  width: 100%;
   height: 25vh;
-  background: rgb(230 230 230);
+  background: rgb(255 255 255);
+  padding: 0px;
+  overflow-y: hidden;
+  overscroll-behavior-y: none;
+}
+
+.thumbnail_container {
+  width: calc(25% - var(--main-padding) );
+  padding-right: var(--main-padding);
 }
 
 .thumbnail-image {
@@ -22,7 +31,7 @@
 }
 
 .thubmnail-text  {
-    padding: 1vw;
+    padding: var(--main-padding) ;
     text-align: justify;
 }
 
@@ -36,8 +45,7 @@
 .thumbnail-title {
   position: absolute;
   height: 25vh;
-  width: calc(25vw - 4px);
-  /* background: rgb(255 255 255); */
+  width: calc(25% - var(--main-padding) / 2 );
 }
 
 .thumbnail-title:hover {
@@ -50,23 +58,25 @@
 
 .thumbnail-title p {
   background: rgb(255 255 255);
-  padding: 0.1vh 0.1vw;
+  padding: 0.3vh 0.3vw;
 }
 
 .thumbnail_bar {
   display: flex;
   flex-direction: row;
-  padding: 3px;
   justify-content: space-between;
+  padding: 0.35vw 0.3vw 1.25vw 0.2vw;
 }
 
 a.thumbnail-href {
   position: absolute;
-  width: calc(25vw - 4px);
   height: 25vh;
   z-index: 1;
+  width: calc(25% - var(--main-padding) / 2);
+  overflow: hidden;
 }
 
 :root {
   --main-color: rgb(255 255 255);
+  --main-padding: 1.45vw;
 }
