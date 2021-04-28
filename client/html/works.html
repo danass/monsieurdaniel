@@ -7,11 +7,7 @@
 
       {{ #let work = getwork }}
 
-      <div class="work work-{{curindex}}">
-        <div class="page-full">
-        </div>
-
-
+      <div class="work">
         <div class="info" title="About this project">about project</div>
         <div class="right">
 
@@ -241,9 +237,7 @@
     <div class="thumbnail_container">
       
     <div class="thumbnail">
-      <div class="link">
       <a class="thumbnail-href" href='/work/{{work.id}}'></a>
-    </div>
       <div class="thumbnail-title">
         <p>
         {{work.fields.Name}}

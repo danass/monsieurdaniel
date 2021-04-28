@@ -86,8 +86,6 @@ Template.works.events({
     let index = i.curindex.get()
     i.curindex.set(index +1)
     if (i.curindex.get() == dblen) { i.curindex.set(0) }   
-    // $('.right').prop("scrollTop", $('.toppy')[0].clientHeight ); 
-    // $('.left').css('opacity', 1)
   },
   'click #prev' (e, i) {
     gogo = 0
@@ -95,8 +93,7 @@ Template.works.events({
     let index = i.curindex.get()
     i.curindex.set(index -1)
     if (i.curindex.get() <= -1) { i.curindex.set(dblen-1) }
-    // $('.right').prop("scrollTop", $('.toppy')[0].clientHeight ); 
-    // $('.left').css('opacity', 1)
+
   },
   'click #up' (e, t) {
     t.dir.set(-1)
@@ -174,4 +171,17 @@ Template.eachphoto.helpers({
   works() {
       return  db.find({type:"Works", 'fields.unpublished' : {$exists: false} }, { sort: { "fields.Year": 1 } }  )
     }
+})
+
+Template.absolute.helpers({
+  works() {
+   return db.find({type:"Works", 'fields.unpublished' : {$exists: false} }, { sort: { "fields.Type": 1 } }  ) 
+  },
+  entries(id) {
+    let entriesArray = db.find({_id: id }).map(work => { return work.fields.Entries })
+    return entriesArray[0]?.map(entryid => {
+      return db.find({_id: entryid}).fetch()[0]
+    })
+  },
+
 })

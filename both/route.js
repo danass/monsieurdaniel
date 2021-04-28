@@ -35,3 +35,11 @@
       BlazeLayout.render('work', {params: params})
     }
   })
+
+
+  FlowRouter.route('/absolute', {
+    name: 'absolute',
+    action(params) {
+      BlazeLayout.render('absolute', {params: params})
+    }
+  })

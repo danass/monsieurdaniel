@@ -1,0 +1,30 @@
+<template name="absolute">
+  {{> menu}}
+  <div class="main-first">
+    <div class="main-content">
+     <div class="main-work">
+      <div class="main-entries">
+        {{#each entry in (entries 'recC8lR6JhcD7liTh')}}
+          <div class="main-entry" style="">
+            <div class="main-text">
+              {{entry.fields.Text}}
+            </div>
+          {{#each photo in entry.fields.Photos }}
+          <div class="main-photo">
+            <img src='{{photo.url}}' />
+          </div>
+          {{/each}}
+          </div>
+        
+        {{/each}}
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="second">
+  {{> overview}}
+  </div>
+  
+</template>
+

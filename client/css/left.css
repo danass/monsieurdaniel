@@ -77,23 +77,27 @@
 }
 
 .bugger {
-  height: 81vh;
+  height: 61vh;
   display: inline-flex;
   max-width: 100%;
 }
 
 .couscous {
   margin-bottom: 10vw;
+  max-width: 50%;
 }
 
 .left_intro {
   margin: 0 auto;
-  padding: 6vw 15vw 20vw 6vw;
+  padding: 7vw 9vw 0vw 8vw;
   background: white;
   text-align: justify;
   border-radius: 55vw 0vw 110vw 25vw;
-  min-height: fit-content;
   white-space: pre-wrap;
+}
+
+.left_intro p {
+  height: fit-content;
 }
 
 .status p {
