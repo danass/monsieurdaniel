@@ -1,11 +1,9 @@
 .s-typ {
-  font-weight: 600;
-  float: left;
+  font-weight: 600; 
+  float: right;
   padding: 0.5vh;
-  color: black;
-  width: 100%;
-  text-align: center;
-  border-radius: 25px 0px 25px 0px;
+  color: rgb(0 0 0);
+  max-width: fit-content;
 }
 
 .subs-left {
@@ -21,7 +19,7 @@
 .left { 
   padding: 85px 250px 85px 110px;
   overflow: hidden;
-  background: white;
+  background: rgb(255 255 255);
   border-radius: 13.3vw 0vw 16.3vw 0vw;
   text-align: right;
   min-width: 25vw;
@@ -29,12 +27,10 @@
 }
 
 .toppy .sub {
-
   background-clip: content-box;
-  background-color: #f8f8f8;
-  border-radius: 0px; 
+  background-color: var(--main-color);
+  border-radius: 0px;
   width: 12vw;
-  font-size: x-large;
   text-align: -webkit-center;
   border-width: 9px 25px 0px 25px;
   align-self: center;
@@ -42,24 +38,22 @@
 .toppy .sub div {
   font-weight: 700;
   padding: 3px;
-  background: #000000;
+  background: rgb(239 239 239);
   border-radius: 25px;
-  border: solid #f8f8f8;
+  border: solid var(--main-color);
   border-width: 0px 15px 0px 15px;
   margin: 41px 0px -3px 5px;
   min-width: 69%;
   max-width: min-content;
-  color: #3df6c8;
+
 }
 
 .toppy {
-  background-color: #f8f8f8;
-  padding: 20px;
+  background-color: var(--main-color);
+  padding: 0vw 5vw;
   display: flex;
   text-align: center;
-  width: 40vw;
-  flex-direction: row;
-  align-content: flex-start;
+  flex-direction: column;
   justify-content: space-around;
   align-items: stretch;
   flex-wrap: wrap;
@@ -67,18 +61,19 @@
   max-height: 64%;
   min-height: fit-content;
   border-radius: 0vw 5vw 10vw 10vw;
+  align-content: flex-start;
 }
 
 .toppy .sub p {
   padding: 9px;
   border-radius: 33px;
-  background: #120000;
-  border: solid #ff0048;
-  font-size: x-small;
+  background: rgb(232 232 232);
+  border: solid rgb(255 217 228);
+  font-size: small;
   border-width: 0px 4px 0px 4px;
-  margin: -1px 0px 0px 0px;
-  display: table-cell;
-  color: aquamarine;
+  margin: 0px 0px 0px 0px;
+  width: fit-content;
+
 }
 
 .bugger {
@@ -88,22 +83,17 @@
 }
 
 .couscous {
-  width: 50%;
+  margin-bottom: 10vw;
 }
 
 .left_intro {
-  width: calc(47vw - 6vw);
   margin: 0 auto;
-  padding: 9vw 7vw 20vw 6vw;
-  font-size: 1.28rem;
-  line-height: 5.875rem;
+  padding: 6vw 15vw 20vw 6vw;
   background: white;
   text-align: justify;
   border-radius: 55vw 0vw 110vw 25vw;
-  /* overflow-y: scroll; */
-  /* height: 35vh; */
   min-height: fit-content;
-  white-space: pre-line;
+  white-space: pre-wrap;
 }
 
 .status p {
@@ -113,10 +103,6 @@
 }
 
 .status div {
-  background: #434343!important;
-  color: #C7C7C9!important;
-}
-
-.left_intro p {
-  white-space: pre-line;
+  background: rgb(222 222 222)!important;
+  color: rgb(185 185 185)!important;
 }

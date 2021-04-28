@@ -8,7 +8,7 @@ colorType = {
   "Installation Project": "violet",
   "Mixed media": "#4bb97f",
   "Curriculae proposal": "turquoise",
-  "Education": "#3ef6c8",
-  "Art": "#ff0033",
-  "Technology": "grey"
+  "Education": "rgb(226 226 226)",
+  "Art": "rgb(226 226 226)",
+  "Technology": "rgb(226 226 226)"
 }

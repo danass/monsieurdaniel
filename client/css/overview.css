@@ -11,6 +11,7 @@
 .thumbnail {
   width: calc(25vw - 4px);
   height: 25vh;
+  background: rgb(230 230 230);
 }
 
 .thumbnail-image {
@@ -25,14 +26,13 @@
     text-align: justify;
 }
 
-
 .thumbnail .thumbnail-title {
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: center;
   align-content: stretch;
-
 }
+
 .thumbnail-title {
   position: absolute;
   height: 25vh;
@@ -56,7 +56,7 @@
 .thumbnail_bar {
   display: flex;
   flex-direction: row;
-  padding: 10px;
+  padding: 3px;
   justify-content: space-between;
 }
 
@@ -65,4 +65,8 @@ a.thumbnail-href {
   width: calc(25vw - 4px);
   height: 25vh;
   z-index: 1;
+}
+
+:root {
+  --main-color: rgb(255 255 255);
 }

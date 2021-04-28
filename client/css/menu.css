@@ -20,29 +20,15 @@ div#home a {
   background: #ffffff12;
 }
 
-#up, #down, #home {
-  background-color: #e7e7e745;;
-  width: 50%;
-}
 
 #nav div {
-  width: 2vw!important;
-  padding: 0vw 0.5vw;
   height: 4vh;
   display: flex;
   align-content: space-around;
   flex-wrap: wrap;
-}
-#nav #next {
-  background-color: #fff7f7;
-  width: 50%;
+  justify-content: space-around;
 }
 
-#nav #prev {
-  background-color: #e7e7e7;
-  width: 50%;
-  
-}
 
 div#nav {
   font-size: 3vh;
@@ -51,6 +37,7 @@ div#nav {
   align-items: flex-start;
   justify-content: space-evenly;
   align-content: space-around;
+  width: 10vw;
 }
 
 #nav div:hover {

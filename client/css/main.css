@@ -1,9 +1,9 @@
 body {
-  font-family: imperial;
+  /* font-family: imperial; */
   background-color: rgba(242,242,242);
-  transition: background-color 1s linear;
+  /* transition: background-color 1s linear;
   -webkit-transition: background-color 1s linear;
-  -moz-transition: background-color 1s linear;
+  -moz-transition: background-color 1s linear; */
   margin:0vw auto;
 }
 
@@ -43,20 +43,13 @@ body {
 /* INTERACTIVE STYLING */
 
 /* next() btn, -> show 1 div at once */
-#works .work:not(:first-child) {
-  display: none; 
-}
 
 
 .right .page:hover {
   opacity: 1;
   font-size: 2vh;
   cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" style="font-size: 40px; font-color:white;"><text y="40">🔫</text></svg>'), auto;
-
 }
-/* .right:hover:.page:hover {
-  padding:0vw;
-} */
 
 .right:hover, #works {
   transition: padding 0.5s, width 0.5s, height 0.5s, visibility 0.5s, click 0.5s, display 0.52s, opacity 0.1s, background-color 0.5s;
@@ -84,35 +77,6 @@ body {
 
 
 
-#menu-left {
-  position: relative;
-  height: 90vh;
-  overflow: hidden;
-  float: left;
-  font-family: imperial;
-  width: 9.3vw;
-  bottom: 0px;
-  left: 1vh;
-  top: 3vh;
-  display: none;
-}
-
-.althidden {
-  transition: opacity 0.3s linear;
-  position: relative;
-  background-color: white!important;
-  font-size: smaller;
-  padding: 8px;
-  opacity: 0;
-}
-
-.alt:hover ~ .althidden {
- opacity: 1;
-}
-.alt {
-  font-size: small;
-  display: block;
-}
 
 
 
@@ -121,70 +85,16 @@ body {
   height: 100%;
 }
 
-.right {
-  position: relative;
-}
 
 
 body {
   scrollbar-color:#e2e2e2;
   scrollbar-width: thin;          /* "auto" or "thin" */
 }
-/* .right::-webkit-scrollbar-track {
-  background-color: #3f3f3f38;
-  border-radius: 0px 0px 40px 40px;
-} */
-/* .right::-webkit-scrollbar-thumb {
-  background-color: #00fff21f;
-  border-radius: 0px 0px 40px 40px;
-  border: 2px solid #00000008;
-} */
+
 .right::-webkit-scrollbar {
-  /* width: 15px; */
   display: none;
 }
-
-.sub-top {
-  padding-left: 10%;
-  padding-right: 10%;
-  padding-top: 7.5%;
-  background-color: rgb(255, 255, 255);
-  padding-bottom:7.5%;
-}
-
-.sub-bottom {
-  padding:5% 10% 5% 10%;
-  position:absolute;                  
-  bottom:0;                          
-  width: -webkit-fill-available;
-  background-color: rgb(255, 255, 255);
-}
-
-.sub-block {
-  background-color: rgb(255, 255, 255);
-  text-transform: capitalize;
-  padding: 1% 10%;
-}
-
-.sub-block div {
-  font-style: italic;
-}
-.sub-block p {
-  margin: 5px;
-  display: list-item;
-  list-style: square;
-}
-
-.sub-block:last-child {
-  padding-bottom: 1.3vh;
-}
-
-
-
-.s-yea {
-  float:right;
-}
-
 
 .img-fullpage {
   width:100%;
