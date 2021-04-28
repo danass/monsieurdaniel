@@ -22,7 +22,7 @@
   padding: 85px 250px 85px 110px;
   overflow: hidden;
   background: white;
-  border-radius: 16.3vw 0vw;
+  border-radius: 13.3vw 0vw 16.3vw 0vw;
   text-align: right;
   min-width: 25vw;
   z-index: 500;
@@ -66,6 +66,7 @@
   height: min-content;
   max-height: 64%;
   min-height: fit-content;
+  border-radius: 0vw 5vw 10vw 10vw;
 }
 
 .toppy .sub p {
@@ -99,8 +100,10 @@
   background: white;
   text-align: justify;
   border-radius: 55vw 0vw 110vw 25vw;
-  overflow-y: scroll;
-  height: 35vh;
+  /* overflow-y: scroll; */
+  /* height: 35vh; */
+  min-height: fit-content;
+  white-space: pre-line;
 }
 
 .status p {

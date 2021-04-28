@@ -16,7 +16,7 @@ Template.works.onCreated(function () {
         }
         scopethis.orientation.set(window.innerHeight < window.innerWidth)
       })
-      this.worksdb = new ReactiveVar(db.find({type:"Works", 'fields.unpublished' : {$exists: false} }, { sort: { "fields.Typeofwork": 1 } }  )  )
+      this.worksdb = new ReactiveVar(db.find({type:"Works", 'fields.unpublished' : {$exists: false} }, { sort: { "fields.Type": 1 } }  )  )
       gogo = 0
       $(document).on('keyup', (e) => {
         if (e.key == 'ArrowRight') { 
@@ -76,11 +76,7 @@ Template.works.helpers({
   },
   orientation() {
     return Template.instance().orientation.get()
-  },
-  works() {
-    //  let works = db.find({type:"Works", 'fields.unpublished' : {$exists: false} }, { sort: { "fields.Field": 1 } }  )
-     return  db.find({type:"Works", 'fields.unpublished' : {$exists: false} }, { sort: { "fields.Year": 1 } }  )
-    }
+  }
 });
 
 Template.works.events({
@@ -117,6 +113,9 @@ Template.works.events({
   'click .right' (e, i) {
     $('.right').prop("scrollTop",gogo); 
     gogo = gogo + $('.right')[0].clientHeight
+  },
+  'click #all' (e, i) {
+    window.scroll(0, $('#works')[0].clientHeight)
   }
 
 })
@@ -169,4 +168,10 @@ Template.portrait.helpers({
     $('#background3').css('display', "none")
 
   }
+})
+
+Template.eachphoto.helpers({
+  works() {
+      return  db.find({type:"Works", 'fields.unpublished' : {$exists: false} }, { sort: { "fields.Year": 1 } }  )
+    }
 })

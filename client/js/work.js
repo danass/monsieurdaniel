@@ -36,6 +36,11 @@ entries(workid) {
    return Template.instance().orientation.get()
  },
 
+ getwork() {
+  let ids = Object.values(Template.instance().worksdb.get().map(e => {return e.id}))
+  let index = Template.instance().curindex.get()
+  return db.findOne({_id: ids[index]})
+},
 
 })
 

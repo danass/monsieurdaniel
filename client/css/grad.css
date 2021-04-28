@@ -87,6 +87,7 @@ animation: AnimationName 50000s cubic-bezier(0.21, 1.12, 0.96, -27270.78) infini
   overflow: hidden;
   top: -2000px;
   left: -500px;
+  z-index: -1;
   
 }
 
@@ -108,7 +109,7 @@ animation: AnimationName 50000s cubic-bezier(0.21, 1.12, 0.96, -27270.78) infini
   left: -500px;
   opacity: 1;
   mix-blend-mode: luminosity;
-
+  z-index: -1;
 }
 
 .grad-1 {

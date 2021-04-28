@@ -128,11 +128,17 @@ Blaze.Template.registerHelper("youtube", new Template('youtube', function () {
     content = Blaze._toText(view.templateContentBlock, HTML.TEXTMODE.STRING);
   }
   precontent = '<iframe class="video" src=\"'
+  url = 'https://youtube.com/embed/' 
   postcontent = '\"</iframe>'
-  video = precontent.concat(content, postcontent)
+  video = precontent.concat(url, content, postcontent)
   console.log(video)
   return HTML.Raw(video);
 }));
 
+Template.registerHelper('yt_thumbnail', function(id) {
+  preurl = 'http://i3.ytimg.com/vi/'
+  posturl = '/hqdefault.jpg'
+  return preurl.concat(id, posturl)
+})
 
 
