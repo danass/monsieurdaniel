@@ -1,3 +1,8 @@
+body {
+  background-color: var(--main-bodycolor)!important;
+
+}
+
 .main-first {
   width: calc(100% - var(--main--absolutepadding) * 2);
   margin-top: var(--main-menuheight);
@@ -7,7 +12,7 @@
   height: calc(100vh - var(--main-menuheight) - var(--main--absolutepadding) * 2);
   left: var(--main--absolutepadding);
   overflow:hidden;
-  box-shadow: 0 0 0 99999px rgb(242 242 242);
+  box-shadow: 0 0 0 99999px var(--main-bottomcolor);
 }
 .main-photo img {
   width: 100%;
@@ -39,7 +44,9 @@ body {
 :root {
   --main-menuheight: 8.5vh;
   --main--absolutepadding: 1.5vw;
-  --main-bordercolor: +rgb(246 246 246);
+  --main-bordercolor: rgb(246 246 246);
+  --main-bottomcolor: rgb(242 242 242);
+  --main-bodycolor: rgb(248 248 248);
 }
 
 .main-photo {
