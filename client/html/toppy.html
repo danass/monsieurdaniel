@@ -1,0 +1,114 @@
+
+  <template name="left_template">
+    <div class="left">
+
+      <div class="title">
+        {{ work.fields.Name }}
+      </div>
+
+      <div class="s-typ" style="background: '{{colorType work.fields.Field}}'">
+        {{ work.fields.Field}}
+      </div>
+
+    </div>
+  </template>
+
+
+
+  <template name="toppy">
+    <div class="bugger">
+      <div class="couscous">
+      {{> left_template work=work}}
+      <div class="toppy">
+        {{#if work.fields.[In collaboration with]}}
+        <div class="sub">
+          <div>Collaborators</div>
+          <p>
+            {{work.fields.[In collaboration with]}}
+          </p>
+        </div>
+        {{/if}}
+
+
+        {{#if work.fields.[Special Thanks]}}
+        <div class="sub">
+          <div>Special Thanks</div>
+          <p>
+            {{work.fields.[Special Thanks]}}
+          </p>
+        </div>
+
+        {{/if}}
+
+        {{#if work.fields.[Shows]}}
+        <div class="sub">
+          <div>Passed Shows</div>
+          {{#each id_ in work.fields.[Shows] }}
+          {{#each show in id id_}}
+          <p>
+            {{show.fields.Name}}
+          </p>
+          {{/each}}
+          {{/each}}
+        </div>
+        {{/if}}
+
+        {{#if work.fields.[Venues]}}
+        <div class="sub">
+          <div>Place</div>
+          {{#each id_ in work.fields.[Venues] }}
+          {{#each venue in id id_}}
+
+          <p>{{venue.fields.Name}}</p>
+
+          {{/each}}
+          {{/each}}
+        </div>
+        {{/if}}
+
+
+
+        {{#if work.fields.Materials}}
+        <div class="sub">
+          <div>Matter</div>
+          {{#each id_ in work.fields.Materials}}
+          {{#each material in id id_}}
+          <p>
+            {{material.fields.Name}}
+          </p>
+          {{/each}}
+          {{/each}}
+        </div>
+        {{/if}}
+
+        {{#if work.fields.Year}}
+        <div class="sub">
+          <div>Year</div>
+          <p>{{work.fields.Year}}</p>
+        </div>
+        {{/if}}
+
+
+        {{#if work.fields.Status}}
+        <div class="sub status">
+          <div>{{work.fields.Status}}</div>
+           <p></p>
+        </div>
+        {{/if}}
+      </div>
+    </div>
+    {{> left_intro work=work}}
+    </div>
+    
+  </template>
+
+  <template name="left_intro">
+    {{#if work.fields.Intro}}
+    <div class="left_intro main-text">
+      {{#markdown}}
+      {{work.fields.Intro}}
+      {{/markdown}}
+    </div>
+    {{/if}}
+
+  </template>

@@ -8,12 +8,13 @@ div#home a {
   position: fixed;
   display: flex;
   width: 100vw;
-  height: 4vh;
+  height: calc(var(--main-menuheight));
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   top: 0;
   z-index: 2;
+  min-height: 4vh;
 }
 
 #getbio {
@@ -27,11 +28,12 @@ div#home a {
   align-content: space-around;
   flex-wrap: wrap;
   justify-content: space-around;
+  padding: 0px 1vw;
 }
 
 
 div#nav {
-  font-size: 3vh;
+  font-size: 4vh;
   display: flex;
   flex-direction: row;
   align-items: flex-start;

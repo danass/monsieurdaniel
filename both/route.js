@@ -1,43 +1,11 @@
   FlowRouter.route('/', {
-    name: 'works',
+    name: 'absolute',
     action(params) {
-      BlazeLayout.render('works', {params: params})
+      BlazeLayout.render('absolute', {params: params})
     }
   })
 
-  FlowRouter.route('/article/:id', {
-    name: 'article',
-    action(params) {
-      BlazeLayout.render('article', {params: params})
-    }
-  })
-
-
-  FlowRouter.route('/entry/:id', {
-    name: 'entry',
-    action(params) {
-      BlazeLayout.render('entry', {params: params})
-    }
-  })
-
-
-
-  FlowRouter.route('/temp', {
-    name: 'temp',
-    action(params) {
-      BlazeLayout.render('temp', {params: params})
-    }
-  })
-
-  FlowRouter.route('/work/:id', {
-    name: 'work',
-    action(params, queryParams) {
-      BlazeLayout.render('work', {params: params})
-    }
-  })
-
-
-  FlowRouter.route('/absolute', {
+  FlowRouter.route('/project/:id', {
     name: 'absolute',
     action(params) {
       BlazeLayout.render('absolute', {params: params})

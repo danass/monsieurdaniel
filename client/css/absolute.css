@@ -5,33 +5,80 @@
   top: var(--main--absolutepadding);
   z-index: 0;
   height: calc(100vh - var(--main-menuheight) - var(--main--absolutepadding) * 2);
-  background: #667c90;
-  border-radius: 25vw;
   left: var(--main--absolutepadding);
   overflow:hidden;
+  box-shadow: 0 0 0 99999px rgb(242 242 242);
 }
 .main-photo img {
   width: 100%;
-  height: 2%;
+  object-fit: contain;
+  max-height: 150vh;
 }
 
 .second {
-  margin-top: 300vh;
   position: absolute;
   z-index: 1;
 }
 
-.main-entry {
-  position: absolute;
-  height: fit-content;
-  overflow: hidden;
-}
 
 .main-text {
-  padding: 7vw 25vw 0vw 25vw;
+  padding: 3.5vh 0% 0vw 0%;
+  font-size: 1.25rem;
+  text-align: justify;
+  width: 50%;
+  margin: 0 auto;
+  line-height: 1.625;
+  --text-opacity: 1;
 }
 
+body {
+  font-family: Open Sans,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color emoji;
+}
+
+
 :root {
-  --main-menuheight: 4vh;
-  --main--absolutepadding: 1vw;
+  --main-menuheight: 8.5vh;
+  --main--absolutepadding: 1.5vw;
+  --main-bordercolor: +rgb(246 246 246);
+}
+
+.main-photo {
+  display: flex;
+  padding: 5.5vh 4vw 5.5vh 4vw;
+}
+
+.main-entries {
+  margin-bottom: var(--main--absolutepadding);
+  margin-top: calc(var(--main--absolutepadding) + var(--main-menuheight));
+  width: 80%;
+  margin: var(--main-menuheight) auto;
+}
+
+.main-entry {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+
+.main-entry:last-child {
+  margin-bottom: 7vh;
+}
+
+.main-date {
+  padding-top: var(--main--absolutepadding);
+}
+
+.main-header {
+ padding-top: calc(var(--main-menuheight) + var(--main--absolutepadding));
+ padding-left: var(--main--absolutepadding);
+ background: rgb(255 255 255);
+}
+
+.main-video {
+  text-align: center;
+}
+
+a:-webkit-any-link {
+  color: rgb(0 0 0);
+  cursor: pointer;
+  text-decoration: auto;
 }

@@ -1,0 +1,75 @@
+
+  <template name="overview">
+    <div class="overview">
+      {{> eachphoto}}
+    </div>
+  </template>
+
+  <template name="gradients">
+    <div id="background" class="grad-0"></div>
+    <div id="background3" class="grad-2"></div>
+  </template>
+
+
+  <template name="eachphoto">
+    {{#each work in works}}
+    {{#each entryId in work.fields.Entries}} 
+    
+
+    {{#if eq @index 0}}
+    {{#each entry in id entryId}}
+    
+    {{#if eq @index 0}}
+    <div class="thumbnail_container">
+      
+    <div class="thumbnail">
+      <a class="thumbnail-href" href='/project/{{work.id}}'></a>
+      <div class="thumbnail-title">
+        <p>
+        {{work.fields.Name}}
+        </p>
+      </div>
+
+      {{#if entry.fields.Photos }}
+        {{#each photo in entry.fields.Photos}}
+          {{#if eq @index 0}}
+          <div class="thumbnail-image" style="background-image: url('{{photo.thumbnails.large.url}}')"></div>
+          {{/if}}
+        {{/each}}
+        
+        {{else}}
+        {{#if has entry.fields.Meta 'Video'}}
+        <div class="thumbnail-image" style="background-image: url('{{yt_thumbnail entry.fields.Link}}')"></div>
+        {{else}}
+        <div class="thubmnail-text">
+          <p>
+
+          {{strmaxwords entry.fields.Text 100}}
+
+          </p>
+        </div>
+      {{/if}}
+      {{/if}}
+
+
+    </div>
+    <div class="thumbnail_bar color-{{strarr work.fields.Field}} ">
+   
+      <div class="thumbnail-type">
+      {{work.fields.Type}}
+    </div>
+    
+    <div class="thumbnail-date">
+      {{work.fields.Year}}
+    </div>
+  </div>
+    </div>
+    {{/if}}
+    {{/each}}
+    {{/if}}
+    {{/each}}
+    
+    {{/each}}
+
+
+  </template>
