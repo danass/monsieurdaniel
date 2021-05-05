@@ -12,8 +12,10 @@ var markdownItAttrs = require('markdown-it-attrs');
 
 
 md.use(markdownItAttrs);
-md.disable("code")
-md.enable(["newline"])
+md.disable('code')
+md.enable(['newline'])
+md.enable([ 'link' ])
+
 
 Blaze.Template.registerHelper("markdown", new Template('markdown', function () {
   var view = this;
@@ -21,11 +23,5 @@ Blaze.Template.registerHelper("markdown", new Template('markdown', function () {
   if (view.templateContentBlock) {
     content = Blaze._toText(view.templateContentBlock, HTML.TEXTMODE.STRING);
   }
-
   return HTML.Raw(md.render(content  ));
 }));
-
-
-
-
-// export {md}

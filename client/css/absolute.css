@@ -13,6 +13,7 @@ body {
   left: var(--main--absolutepadding);
   overflow:hidden;
   box-shadow: 0 0 0 99999px var(--main-bottomcolor);
+  pointer-events: none;
 }
 .main-photo img {
   width: 100%;
@@ -84,8 +85,13 @@ body {
   text-align: center;
 }
 
-a:-webkit-any-link {
+#menu a:-webkit-any-link {
   color: rgb(0 0 0);
   cursor: pointer;
   text-decoration: auto;
+}
+
+.main-text a:-webkit-any-link {
+  color: rgb(0 0 0);
+  cursor: pointer;
 }
