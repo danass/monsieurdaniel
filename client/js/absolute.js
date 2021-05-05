@@ -10,6 +10,7 @@ Template.absolute.helpers({
    return db.find({type:"Works", 'fields.unpublished' : {$exists: false} }, { sort: { "fields.Type": 1 } }  ) 
   },
   entries(id) {
+    window.scroll(0, 0)
     let entriesArray = db.find({_id: id }).map(work => { return work.fields.Entries })
     return entriesArray[0]?.map(entryid => {
       return db.find({_id: entryid}).fetch()[0]
