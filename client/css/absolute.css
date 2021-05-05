@@ -95,3 +95,43 @@ body {
   color: rgb(0 0 0);
   cursor: pointer;
 }
+
+.second-bar {
+  display: flex;
+  text-align: right;
+  justify-content: flex-end;
+}
+
+.second-bar div {
+  padding: 5px;
+  width: 1vw;
+  border: 1px solid rgb(24 33 45);
+}
+
+
+.second-header {
+  background: rgb(255 255 255);
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+  margin-right: var(--main--absolutepadding);
+  cursor: w-resize;
+}
+
+.second-bar {
+  display: flex;
+  text-align: center;
+}
+
+.second-bar div {
+  padding: 5px;
+}
+
+.second-plus {
+  border-right: none!important;
+}
+
+.second-plus:hover, .second-minus:hover {
+  background: rgb(0 0 0);
+  color: rgb(255 255 255);
+}

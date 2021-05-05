@@ -11,12 +11,6 @@ Template.absolute.helpers({
   },
   entries(id) {
     window.scroll(0, 0)
-    
-
-  Tracker.autorun( function() {
-    $(".main-entry a ").attr('target','_blank')
-  })
-  
     let entriesArray = db.find({_id: id }).map(work => { return work.fields.Entries })
     return entriesArray[0]?.map(entryid => {
       return db.find({_id: entryid}).fetch()[0]
@@ -64,3 +58,20 @@ Template.menu.helpers({
   }
 })
 
+
+
+Template.absolute.events({
+  'click .second-minus' (e, i) {
+    let curval = parseInt($(':root').css('--main-nbcol')) 
+    if (curval >= 2) {
+      $(':root').css('--main-nbcol', curval -1)
+    }
+
+  },
+  'click .second-plus' (e, i) {
+    let curval = parseInt($(':root').css('--main-nbcol')) 
+    if(curval <= 7) {
+      $(':root').css('--main-nbcol', curval +1)
+      }
+  },
+})

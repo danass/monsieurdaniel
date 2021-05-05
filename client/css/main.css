@@ -1,22 +1,7 @@
 body {
-  /* font-family: imperial; */
   background-color: rgba(242,242,242);
-  /* transition: background-color 1s linear;
-  -webkit-transition: background-color 1s linear;
-  -moz-transition: background-color 1s linear; */
   margin:0vw auto;
 }
-
-/*ANIMATED STYLE*/
-
-
-/* .grad-0 {
-  background: linear-gradient(19deg, #a2a2a2, #203a46, #2f2420, #d5d5d5, #e4e4e4, #000000, #c6c6c6, #c6c6c6, #c6c6c6, #555555, #959595, #d1d1d1, #d1d1d1, #292929, #2a3071, #252527);
-  background-size: 3200% 3200%;
-  -webkit-animation: AnimationName 59s ease infinite;
-  -moz-animation: AnimationName 59s ease infinite;
-  animation: AnimationName 59s ease infinite;
-} */
 
 
 @-webkit-keyframes AnimationName {
@@ -36,7 +21,7 @@ body {
 }
 
 .page, .work, .left, .right, .page-full, div, .img-fullpage, window {
-  transition: width 2s, height 2s, visibility 2s, click 2s, display 2s, opacity 0.2s, background-color 0.2s, scroll 1s;
+  transition: width 0.5s, height 0.5s, visibility 2s, click 2s, display 2s, opacity 0.2s, background-color 0.2s, scroll 1s;
   scroll-behavior: smooth;
 }
 
@@ -45,60 +30,23 @@ body {
 /* next() btn, -> show 1 div at once */
 
 
-.right .page:hover {
-  opacity: 1;
-  font-size: 2vh;
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" style="font-size: 40px; font-color:white;"><text y="40">🔫</text></svg>'), auto;
-}
 
-.right:hover, #works {
-  transition: padding 0.5s, width 0.5s, height 0.5s, visibility 0.5s, click 0.5s, display 0.52s, opacity 0.1s, background-color 0.5s;
-}
-
-.page {
-  height:fit-content;
-}
-
+/* 
   #prev:hover {
     cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" style="font-size: 40px; font-color:white;"><text y="40">🍔</text></svg>'), auto;
   }
 
-   #nav #next:hover{
+   #next:hover{
   cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" style="font-size: 40px; font-color:white;"><text y="40">🦄</text></svg>'), auto;
-}
-  .page-full:hover {
+} */
+
+  /* .page-full:hover {
     cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" style="font-size: 40px; font-color:white;"><text y="40">🦄</text></svg>'), auto;
-  }
-
-#up:hover, #down:hover {
-  cursor:move;
-
-}
+  } */
 
 
+::-webkit-scrollbar {
 
-
-
-
-.work {
-  display: flex;
-  height: 100%;
-}
-
-
-
-body {
   scrollbar-color:#e2e2e2;
-  scrollbar-width: thin;          /* "auto" or "thin" */
-}
-
-.right::-webkit-scrollbar {
-  display: none;
-}
-
-.img-fullpage {
-  width:100%;
-  height:100%;
-  background-position: center;
-  background-size: contain;
+  scrollbar-width: thin;      
 }

@@ -1,7 +1,9 @@
 <template name="absolute">
+  
   {{> menu}}
-  <div class="main-first">
-    </div>
+
+  <div class="main-first"></div>
+
     <div class="main-header">
       <div class="main-about">
         {{#let work = (id currentId)}}
@@ -11,54 +13,56 @@
         {{/let}}
       </div>
     </div>
+
     <div class="main-content">
-     <div class="main-work">
-      <div class="main-entries">
-        {{#each entry in (entries currentId)}}
-          <div class="main-entry">
-          {{> video entry=entry}}
-          {{#if iNe entry.fields.Photos }}
-          {{#each photo in entry.fields.Photos }}
-          <div class="main-photo">
-            <img src='{{photo.url}}' />
-          </div>
-          {{/each}}
-          {{/if}}
+      <div class="main-work">
+        <div class="main-entries">
+          {{#each entry in (entries currentId)}}
+            <div class="main-entry">
+              {{> video entry=entry}}
+              
+              {{#if iNe entry.fields.Photos }}
+              {{#each photo in entry.fields.Photos }}
+                <div class="main-photo">
+                  <img src='{{photo.url}}' />
+                </div>
+              {{/each}}
+              {{/if}}
 
+              {{#if has entry.fields.Meta 'Date'}}
+              <div class="main-date">
+                {{date entry.fields.date_created}}
+              </div>
+              {{/if}}
 
-          {{#if has entry.fields.Meta 'Date'}}
-          <div class="main-date">
-            {{date entry.fields.date_created}}
-          </div>
-          {{/if}}
+              {{#if iNe entry.fields.Text }}
+              <div class="main-text">
+                {{> markd entry=entry}}
+              </div>
+              {{/if}}
 
-
-          {{#if iNe entry.fields.Text }}
-          <div class="main-text">
-            {{> markd entry=entry}}
-          </div>
-          {{/if}}
-
-          </div>
-        
+            </div>
         {{/each}}
+
+       </div>
       </div>
-      <div class="second">
-      <div class="second-header">
-        <div class="second-bar">
-          <div class="second-plus">
-            +
-          </div>
-          <div class="second-minus">
-            -
+    </div>
+
+        <div class="second-header">
+          <div class="second-bar">
+            <div class="second-plus"> + </div>
+            <div class="second-minus"> - </div>
           </div>
         </div>
-      </div>
-      {{> overview}}
-    </div>
-    </div>
 
-  </div>
+        <div class="second">
+          {{> overview}}
+        </div>
+      
+
+
+
+  
 </template>
 
 
