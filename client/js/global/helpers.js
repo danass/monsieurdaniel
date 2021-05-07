@@ -38,6 +38,11 @@ Template.registerHelper("fetch", function () {
 return db.findOne({ _id: this.params().id});
 });
 
+Template.registerHelper("parse", function (o) {
+  
+return JSON.parse(o?.replace('/\\/g', ''))
+  });
+  
 
 Template.registerHelper("id", function (id) {
  return db.find({_id: id}) 
@@ -55,7 +60,7 @@ Template.registerHelper("strmaxwords", function (str, n) {
 return str?.split(" ").splice(0,n).join(" ");
 });
 
-Template.registerHelper("typeof", function (o) {
+Template.registerHelper("typeof", function (o) {  
   return typeof(o)
   });
 
