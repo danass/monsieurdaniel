@@ -1,5 +1,6 @@
 Template.absolute.onCreated(function() {
 
+  db.find({type:"Works", 'fields.unpublished' : {$exists: false}  }, { sort: { "fields.Year": -1 } }  )
 }
 
 )
@@ -11,9 +12,8 @@ Template.eachphoto.helpers({
 
 Template.absolute.helpers({
   works() {
-    return Tracker.autorun(function(){
+    
    return db.find({ type:"Works",  'fields.unpublished' : {$exists: false},  "fields.Field": "Art"} , { sort: { "fields.Type": 1 } }  ) 
-  })
   },
   entries(id) {
     window.scroll(0, 0)
@@ -26,6 +26,7 @@ Template.absolute.helpers({
     if (FlowRouter.getParam('id') === undefined) {
       return "recdZe6i8XsaKbToQ"
     }
+    
     return FlowRouter.getParam('id')
   }
 
@@ -45,6 +46,7 @@ Template.menu.helpers({
     }      
   },
   currentId() {
+    
     if (FlowRouter.getParam('id') === undefined) {
       return "recdZe6i8XsaKbToQ"
     }

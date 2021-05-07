@@ -7,7 +7,7 @@ let ledger = ["Works", "Entries", "Shows", "Venues", "Materials"]
 let buffersize = 10 
 let memory = [] 
 
-let delayms = 1500
+let delayms = 200
 
 let localdbIds = new Set()
 
