@@ -1,5 +1,7 @@
 Template.absolute.onCreated(function() {
+  Tracker.autorun(function(){
 
+  )
 }
 
 )
