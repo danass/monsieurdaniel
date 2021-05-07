@@ -4,10 +4,10 @@ import _ from 'lodash';
 
 
 let ledger = ["Works", "Entries", "Shows", "Venues", "Materials"]
-let buffersize = 5
+let buffersize = 8
 let memory = [] 
 
-let delayms = 250
+let delayms = 450
 
 let localdbIds = new Set()
 
