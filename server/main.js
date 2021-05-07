@@ -4,7 +4,7 @@ import _ from 'lodash';
 
 
 let ledger = ["Works", "Entries", "Shows", "Venues", "Materials"]
-let buffersize = 10 
+let buffersize = 5
 let memory = [] 
 
 let delayms = 250
@@ -99,7 +99,7 @@ async function update(ledger) {
               //  console.log("removing?")
               // console.log("hey", differenceIds.size, id.type)
               // checking consistency: if memory buffer average is consistent (average of buffer == db size) 
-              if (memory.reduce((a, b) => { return (a + b)/ memory.length }) == dbIdsCopy.size) {
+              if (memory?.reduce((a, b) => { return (a + b)/ memory.length }) == dbIdsCopy.size) {
                 console.log("yes")
                 db.remove(id)
               }
