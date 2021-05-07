@@ -1,7 +1,5 @@
 Template.absolute.onCreated(function() {
-  Tracker.autorun(function(){
 
-  })
 }
 
 )
@@ -13,7 +11,9 @@ Template.eachphoto.helpers({
 
 Template.absolute.helpers({
   works() {
+    return Tracker.autorun(function(){
    return db.find({ type:"Works",  'fields.unpublished' : {$exists: false},  "fields.Field": "Art"} , { sort: { "fields.Type": 1 } }  ) 
+  })
   },
   entries(id) {
     window.scroll(0, 0)
