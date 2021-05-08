@@ -21,6 +21,12 @@
             <div class="main-entry">
               {{> video entry=entry}}
               
+              {{#if iNe entry.fields.Text }}
+              <div class="main-text">
+                {{> markd entry=entry}}
+              </div>
+              {{/if}}
+
               {{#if iNe entry.fields.Photos }}
               {{#each photo in entry.fields.Photos }}
                 <div class="main-photo">
@@ -35,11 +41,6 @@
               </div>
               {{/if}}
 
-              {{#if iNe entry.fields.Text }}
-              <div class="main-text">
-                {{> markd entry=entry}}
-              </div>
-              {{/if}}
 
             </div>
         {{/each}}
