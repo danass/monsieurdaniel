@@ -74,14 +74,13 @@ async function update(ledger) {
 
         }).catch(e => {
           console.log("hmm,", e.code)
-          return
+          return e
         })
         // END OF FOR LOOP
     }
     // COMPARE LOCALDB IDS WITH FETCH DATA IDS
 
     let dbIdsCopy = new Set([...db.find({}).fetch()])
-
     if (dbIdsCopy.size != 0) {
         let differenceIds = new Set([...dbIdsCopy].filter(x => !localdbIds.has(x.id)))
 
@@ -96,11 +95,11 @@ async function update(ledger) {
         
         differenceIds.forEach(id =>
              {
-              //  console.log("removing?")
+              
               // console.log("hey", differenceIds.size, id.type)
               // checking consistency: if memory buffer average is consistent (average of buffer == db size) 
               if (memory?.reduce((a, b) => { return (a + b)/ memory.length }) == dbIdsCopy.size) {
-                console.log("yes")
+                console.log("removing", id)
                 db.remove(id)
               }
               else {

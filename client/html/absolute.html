@@ -21,6 +21,12 @@
             <div class="main-entry">
               {{> video entry=entry}}
               
+              {{#if has entry.fields.Meta 'Date'}}
+              <div class="main-date">
+                {{date entry.fields.date_created}}
+              </div>
+              {{/if}}
+
               {{#if iNe entry.fields.Text }}
               <div class="main-text">
                 {{> markd entry=entry}}
@@ -33,12 +39,6 @@
                   <img src='{{photo.url}}' />
                 </div>
               {{/each}}
-              {{/if}}
-
-              {{#if has entry.fields.Meta 'Date'}}
-              <div class="main-date">
-                {{date entry.fields.date_created}}
-              </div>
               {{/if}}
 
 
